@@ -1,0 +1,54 @@
+Distribución de Roles y Tareas
+1. Tú (UI/UX & Frontend Lead + Backend Floater)
+
+Tu misión: El "look & feel" y la integración. Si la app se ve profesional, el 50% del pitch está ganado.
+
+    Tarea A (Frontend Core): Configurar el proyecto en React (Vite) + Tailwind. Implementar el Mapbox GL JS con las coordenadas de Puebla.
+
+    Tarea B (UX Switcher): Crear el toggle para cambiar entre "Modo Pro" (mapa de baches y puntos) y "Modo Senior" (botones gigantes y ruta directa).
+
+    Tarea C (Integration): Una vez que el Senior tenga los endpoints, conectar los fetch de React al backend de FastAPI.
+
+    IA Prompt Strategy: "Actúa como experto en Tailwind y Framer Motion. Crea un componente de 'Misión Cumplida' con animaciones sutiles para Yankuilotl+."
+
+2. El Senior (Arquitecto de Backend & Algoritmos)
+
+Su misión: El motor de "Ruta Sana" y la integridad de los datos.
+
+    Tarea A (Core API): Levantar FastAPI y definir los modelos Pydantic (User, Hub, Pothole).
+
+    Tarea B (Algoritmo de Grafos): Implementar NetworkX para calcular la ruta ponderada (la lógica de que los baches "pesen" más en el mapa).
+
+    Tarea C (Sistema de Créditos): Programar la lógica de validación de baches (el contador de 3 votos) y el swap de baterías.
+
+    IA Prompt Strategy: "Genera un algoritmo en Python usando NetworkX que calcule el camino más corto entre dos puntos, pero añade un multiplicador de peso de 5x a los bordes que tengan el atributo pothole: true."
+
+3. Novato 1 (Data & Mocking Engineer)
+
+Su misión: Alimentar al monstruo con datos reales de Puebla.
+
+    Tarea A (Geofencing Data): Usar la IA para generar un archivo puebla_data.json con las coordenadas reales de las terminales del RUTA, universidades y plazas (Angelópolis, Solesta).
+
+    Tarea B (Seed Data): Crear 50 reportes de baches falsos distribuidos por la ciudad para que el mapa no se vea vacío durante la demo.
+
+    Tarea C (Testing): Probar los endpoints del Senior usando Postman o Thunder Client para asegurar que devuelven lo que el Front necesita.
+
+4. Novato 2 (Security & Feature Assistant)
+
+Su misión: Implementar las funciones de seguridad y la lógica de referidos.
+
+    Tarea A (Simulador NFC/Auth): Crear la lógica simple que simule el "Tap" de la tarjeta RUTA (un endpoint que reciba un ID y devuelva un perfil).
+
+    Tarea B (Referral & Senior Help): Programar la lógica de "Embajadores Digitales" (el prompt de: "¿Te ayudó alguien?").
+
+    Tarea C (Documentación & Pitch Support): Mantener el README.md actualizado y preparar los datos técnicos que tú usarás en el Canva del pitch.
+
+🛠️ Flujo de Trabajo con IA (Sincronización)
+
+Para que los novatos no se pierdan, dales este flujo:
+
+    Entender el Contexto: Deben tener siempre abierto el memoryDump que creamos antes en su Copilot.
+
+    Modularidad: Que trabajen en archivos separados (ej. referrals.py, data_loader.py) para que no causen conflictos en Git con el código del Senior.
+
+    Prompt Engineering: Enséñales que si la IA les da un código que no entienden, le pregunten: "Explícame línea por línea qué hace esto para poder explicárselo a mi Senior".
