@@ -1,0 +1,62 @@
+==========================================================================
+             YANKUILOTL+ TECH STACK - PUEBLA HACKATHON 2026
+==========================================================================
+
+1. LENGUAJES DE PROGRAMACIÓN
+--------------------------------------------------------------------------
+- Python 3.10+: Core del backend, algoritmos de grafos y lógica de negocio.
+- JavaScript (ES6+): Desarrollo del frontend dinámico e interactivo.
+- HTML5 / CSS3: Estructura y diseño responsivo.
+- Markdown: Documentación técnica y prompts de contexto para IA.
+
+2. FRONTEND (UI/UX)
+--------------------------------------------------------------------------
+- Framework: React (Vite) - Para una SPA rápida y modular.
+- Mapas: Mapbox GL JS - Manejo de capas geoespaciales y rutas dinámicas.
+- Estilos: Tailwind CSS - Diseño rápido mediante utilidades.
+- Animaciones: Framer Motion - Feedback visual para gamificación (puntos/logros).
+- Iconografía: Lucide React - Sets de iconos limpios y accesibles.
+- HTTP Client: Axios - Comunicación asíncrona con el backend.
+
+3. BACKEND (API & LÓGICA)
+--------------------------------------------------------------------------
+- Framework: FastAPI - Alto rendimiento, tipado y docs automáticas (Swagger).
+- Servidor: Uvicorn - Servidor ASGI rápido.
+- Validación de Datos: Pydantic - Modelado de esquemas JSON robustos.
+- Lógica de Grafos: NetworkX - Para el cálculo de la "Ruta más Sana".
+- Geo-Cálculos: Geopy - Cálculo de distancias entre coordenadas GPS.
+- Base de Datos (MVP): SQLite o JSON Flat Files - Persistencia ágil para 36h.
+
+4. CONCEPTOS TÉCNICOS & PROTOCOLOS
+--------------------------------------------------------------------------
+- RESTful API: Arquitectura de comunicación cliente-servidor.
+- NFC (Near Field Communication): Simulación de protocolos de lectura de tarjetas.
+- Web NFC API: Para interactuar con tags físicos desde el navegador (simulado).
+- OAuth 2.0: Concepto de registro progresivo y login social.
+- Privacy by Design: Autenticación local sin almacenamiento central de biometría.
+- Geofencing: Definición de perímetros virtuales para los Energy Hubs.
+- HCE (Host Card Emulation): Concepto para emulación de la Tarjeta RUTA.
+
+5. DATA STRUCTURES & ALGORITHMS (DSA)
+--------------------------------------------------------------------------
+- Grafos (Graphs): Representación de la ciudad (Nodos = Estaciones, Aristas = Calles).
+- Dijkstra's Algorithm: Cálculo de ruta más corta ponderada por baches.
+- Priority Queues (Heaps): Optimización de la búsqueda de rutas en tiempo real.
+- Hash Maps / Dictionaries: Gestión de estados de usuarios y tokens de sesión.
+- Geospatial Indexing: Para buscar unidades y baches cercanos de forma eficiente.
+- Consenso de Votos: Algoritmo de validación de 3 capas para reportes ciudadanos.
+
+6. HERRAMIENTAS DE DESARROLLO & DEVOPS
+--------------------------------------------------------------------------
+- Editor: VS Code + GitHub Copilot (Pair Programming con IA).
+- Control de Versiones: Git + GitHub (Branching: main, feature/front, feature/back).
+- API Testing: Postman o Thunder Client.
+- Prototipado UX: Canva / Figma (Para el diseño de la presentación).
+- Local Deployment: Localhost con túneles (ngrok) si es necesario mostrar a jueces.
+
+7. ESTÁNDARES DE ACCESIBILIDAD (MODO SENIOR)
+--------------------------------------------------------------------------
+- WCAG 2.1: Estándares de contraste y tamaño de fuente para debilidad visual.
+- Touch Target Sizes: Botones de mínimo 44x44dp para facilitar el click.
+- Fitts's Law: Diseño centrado en la facilidad de movimiento para manos menos ágiles.
+==========================================================================
