@@ -36,3 +36,11 @@
 ## Obtener Librerias actualmente en uso
 
 pip freeze > requirements.txt
+
+# Sistema de Navegación
+
+En esta versión de la app, se dan manualmente los valores de las variables.
+
+origen, destino, coords_ruta.
+
+ La salida de las coordenadas no son capaces de conectar con el front-end aún, y estas se guardan temporalmente en tuplas.
