@@ -1,0 +1,23 @@
+{
+    "1": {
+        "nombre": "Carlos Sanchez",
+        "correo_electronico": "carlos.sanchez@example.com",
+        "edad": 30,
+        "Tarjeta": "1234-5678-9012-3456",
+        "Tarjeta_ruta": "1234567890"
+    },
+    "2": {
+        "nombre": "a",
+        "correo_electronico": "b",
+        "edad": 1,
+        "Tarjeta": "c",
+        "Tarjeta_ruta": "d"
+    },
+    "3": {
+        "nombre": "e",
+        "correo_electronico": "f",
+        "edad": 1,
+        "Tarjeta": "g",
+        "Tarjeta_ruta": "h"
+    }
+}
