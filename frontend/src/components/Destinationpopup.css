@@ -1,0 +1,118 @@
+/* Overlay oscuro de fondo */
+.dest-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+/* Contenedor del modal */
+.dest-modal {
+  background-color: #ffffff;
+  border-radius: 24px;
+  padding: 32px 24px 28px;
+  width: 100%;
+  max-width: 420px;
+  position: relative;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+}
+
+/* Botón X para cerrar */
+.dest-close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background-color: #f0f0f0;
+  border: none;
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #333;
+  transition: background-color 0.15s;
+}
+
+.dest-close-btn:active {
+  background-color: #ddd;
+  transform: scale(0.95);
+}
+
+/* Título */
+.dest-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: #1a1a2e;
+  text-align: center;
+  margin-bottom: 28px;
+  margin-top: 8px;
+  font-family: sans-serif;
+  line-height: 1.2;
+}
+
+/* Lista de botones */
+.dest-btn-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* Botón base tipo píldora */
+.dest-btn {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 28px;
+  border: none;
+  border-radius: 999px;
+  font-size: 24px;
+  font-weight: 800;
+  font-family: sans-serif;
+  color: white;
+  cursor: pointer;
+  width: 100%;
+  text-align: left;
+  box-shadow: 0 5px 0 rgba(0, 0, 0, 0.2);
+  transition: transform 0.08s ease, box-shadow 0.08s ease;
+}
+
+.dest-btn:active {
+  transform: translateY(5px);
+  box-shadow: none;
+}
+
+/* Lugares cercanos - azul cobalto */
+.dest-btn-place {
+  background-color: #0047ab;
+  border-bottom: 5px solid #003080;
+}
+
+.dest-btn-place:active {
+  border-bottom: none;
+}
+
+/* Casa - azul cobalto */
+.dest-btn-home {
+  background-color: #0047ab;
+  border-bottom: 5px solid #003080;
+}
+
+.dest-btn-home:active {
+  border-bottom: none;
+}
+
+/* Buscar - verde brillante */
+.dest-btn-search {
+  background-color: #27ae60;
+  border-bottom: 5px solid #1e8449;
+}
+
+.dest-btn-search:active {
+  border-bottom: none;
+}
