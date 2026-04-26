@@ -1,0 +1,10 @@
+{
+    "1": {
+        "nombre": "Poblanit@_26",
+        "correo_electronico": "poblanit_26@example.com",
+        "edad": 25,
+        "Tarjeta": "1234",
+        "Tarjeta_ruta": "RUTA-1234",
+        "creditos": 360
+    }
+}
