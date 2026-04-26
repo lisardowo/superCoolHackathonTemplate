@@ -41,7 +41,7 @@ Su misión: Implementar las funciones de seguridad y la lógica de referidos.
 
     Tarea B (Referral & Senior Help): Programar la lógica de "Embajadores Digitales" (el prompt de: "¿Te ayudó alguien?").
 
-    Tarea C (Documentación & Pitch Support): Mantener el README.md actualizado y preparar los datos técnicos que tú usarás en el Canva del pitch.
+    Tarea C (Documentafción & Pitch Support): Mantener el README.md actualizado y preparar los datos técnicos que tú usarás en el Canva del pitch.
 
 🛠️ Flujo de Trabajo con IA (Sincronización)
 

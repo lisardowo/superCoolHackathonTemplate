@@ -18,3 +18,5 @@ backend/*.pyc
 
 # VS Code
 .vscode/
+
+node_modules
