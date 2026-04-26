@@ -267,3 +267,39 @@
   border-radius: 5px;
   font-size: 0.8rem;
 }
+
+/* ── Destino del viaje ── */
+.j-status-place {
+  font-size: 0.75rem;
+  color: #35517e;
+  margin: 2px 0 6px;
+  font-weight: 500;
+}
+
+/* ── Botón ¿Cómo llegar? ── */
+.btn-trip-ruta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  margin-top: 8px;
+  padding: 8px 0;
+  background: #0047AB;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-trip-ruta:disabled {
+  opacity: 0.65;
+  cursor: default;
+}
+
+.btn-trip-ruta--loading { background: #5580c8; }
+.btn-trip-ruta--ok      { background: #1A8A7D; }
+.btn-trip-ruta--error   { background: #C0392B; }

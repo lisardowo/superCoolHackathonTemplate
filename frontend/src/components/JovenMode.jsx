@@ -6,6 +6,7 @@ import PaymentsModal from './PaymentsModal';
 import ReporteModal from './ReporteModal';
 import CuentaModal from './CuentaModal';
 import MisionesModal from './MisionesModal';
+import ConfigModal from './ConfigModal';
 import './JovenMode.css';
 
 const NAV_ITEMS = [
@@ -22,23 +23,57 @@ const ESCANEAR_IDX = 2;
 const CUENTA_IDX   = 3;
 const MISIONES_IDX = 4;
 
-// openConfig — callback que viene de App.jsx para abrir el ConfigModal global
-export default function JovenMode({ openConfig, isConfigActive }) {
-  const [activeNavIndex,    setActiveNavIndex]    = useState(2);
-  const [isActive,          setIsActive]          = useState(false);
+export default function JovenMode({ onModoChange }) {
+  const [activeNavIndex, setActiveNavIndex] = useState(2);
+  const [isActive, setIsActive] = useState(false);
   const [isSectionMenuOpen, setIsSectionMenuOpen] = useState(false);
-  const [isPaymentsOpen,    setIsPaymentsOpen]    = useState(false);
-  const [isReporteOpen,     setIsReporteOpen]     = useState(false);
-  const [isCuentaOpen,      setIsCuentaOpen]      = useState(false);
-  const [isMisionesOpen,    setIsMisionesOpen]    = useState(false);
-  const [isTripActive,      setIsTripActive]      = useState(false);
+  const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
+  const [isReporteOpen, setIsReporteOpen] = useState(false);
+  const [isCuentaOpen, setIsCuentaOpen] = useState(false);
+  const [isMisionesOpen, setIsMisionesOpen] = useState(false);
+  const [isConfigOpen, setIsConfigOpen] = useState(false);
+  const [isTripActive, setIsTripActive] = useState(false);
 
-  // Mapa / rutas
-  const drawRouteRef              = useRef(null);
+  // Misión sugerida al escanear — coords del destino para "¿Cómo llegar?"
+  const MISION_VIAJE = {
+    titulo: 'Zócalo de Puebla',
+    coords: { lat: 19.0435, lng: -98.1981 },
+  };
+  const [tripRutaEstado, setTripRutaEstado] = useState(null); // null | 'loading' | 'ok' | 'error'
+
+  const handleTripRuta = async () => {
+    if (!userLocation) return;
+    setTripRutaEstado('loading');
+    try {
+      const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8000';
+      const res = await fetch(`${API_BASE}/map/route`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          origen:  [userLocation.lat, userLocation.lng],
+          destino: [MISION_VIAJE.coords.lat, MISION_VIAJE.coords.lng],
+        }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();
+      if (!data.nodos?.length) throw new Error('Sin nodos');
+      drawRouteRef.current?.({ nodos: data.nodos, nombre: MISION_VIAJE.titulo });
+      setTripRutaEstado('ok');
+    } catch (err) {
+      console.error('❌ Ruta viaje:', err);
+      setTripRutaEstado('error');
+      setTimeout(() => setTripRutaEstado(null), 3000);
+    }
+  };
+
+  // Ref que MapContainer rellena con su función drawRoute
+  const drawRouteRef = useRef(null);
   const [userLocation, setUserLocation] = useState(null);
+  const [rutaSana, setRutaSana] = useState(false);
+  const [tarjetaVinculada, setTarjetaVinculada] = useState(false);
 
   // User state
-  const [userXP,      setUserXP]      = useState(2340);
+  const [userXP, setUserXP] = useState(2340);
   const [userCreditos, setUserCreditos] = useState(148);
   const userSaldo   = 8.0;
   const userTarjeta = '9999';
@@ -60,8 +95,13 @@ export default function JovenMode({ openConfig, isConfigActive }) {
   const handleSimulateScan     = () => { setIsTripActive(true); handleCloseSectionMenu(); };
 
   const handleRecompensa = ({ xp, creditos }) => {
-    setUserXP((prev)      => prev + xp);
+    setUserXP((prev) => prev + xp);
     setUserCreditos((prev) => prev + creditos);
+  };
+
+  const handleModoChange = (modo) => {
+    setIsConfigOpen(false);
+    onModoChange?.(modo);
   };
 
   const isScanSection = activeNavIndex === ESCANEAR_IDX;
@@ -69,11 +109,10 @@ export default function JovenMode({ openConfig, isConfigActive }) {
 
   return (
     <div className="joven-container">
-
-      {/* Botón config — abre el ConfigModal que vive en App.jsx */}
+      {/* Config button — usa IconConfig o SVG inline */}
       <button
-        className={`floating-config-btn ${isConfigActive ? 'is-active' : ''}`}
-        onClick={openConfig}
+        className={`floating-config-btn ${isConfigOpen ? 'is-active' : ''}`}
+        onClick={() => setIsConfigOpen(true)}
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="3"/>
@@ -94,9 +133,25 @@ export default function JovenMode({ openConfig, isConfigActive }) {
         {isTripActive && (
           <div className="j-status-card glass trip-active">
             <div className="j-status-header"><span className="pulse-dot" /><h3>Viaje en curso</h3></div>
-            <p className="j-status-mission">Misión: Cambia batería en Zócalo.</p>
+
+            {/* Misión sugerida + destino */}
+            <p className="j-status-mission">Misión sugerida: Cambia batería en Zócalo.</p>
+            <p className="j-status-place">📍 {MISION_VIAJE.titulo}</p>
             <div className="j-status-reward">Premio: <span>+50XP</span></div>
-            <button className="btn-end-trip" onClick={() => setIsTripActive(false)}>Terminar</button>
+
+            {/* Botón ¿Cómo llegar? */}
+            <button
+              className={`btn-trip-ruta ${tripRutaEstado ? `btn-trip-ruta--${tripRutaEstado}` : ''}`}
+              onClick={handleTripRuta}
+              disabled={tripRutaEstado === 'loading' || tripRutaEstado === 'ok'}
+            >
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
+              </svg>
+              {{ null: '¿Cómo llegar?', loading: 'Calculando…', ok: 'Ruta activa', error: 'Error, reintentar' }[tripRutaEstado] ?? '¿Cómo llegar?'}
+            </button>
+
+            <button className="btn-end-trip" onClick={() => { setIsTripActive(false); setTripRutaEstado(null); }}>Terminar viaje</button>
           </div>
         )}
       </main>
@@ -129,12 +184,7 @@ export default function JovenMode({ openConfig, isConfigActive }) {
 
       <PaymentsModal isOpen={isPaymentsOpen} onClose={() => setIsPaymentsOpen(false)} saldo={userSaldo} tarjeta={userTarjeta} />
       <ReporteModal  isOpen={isReporteOpen}  onClose={() => setIsReporteOpen(false)}  ubicacion="Ubicación actual" />
-      <CuentaModal
-        isOpen={isCuentaOpen}
-        onClose={() => setIsCuentaOpen(false)}
-        usuario={userName} nivel={userNivel} xp={userXP}
-        creditos={userCreditos} reputacion={userRep} animalActual="Axolote"
-      />
+      <CuentaModal   isOpen={isCuentaOpen}   onClose={() => setIsCuentaOpen(false)}   usuario={userName} nivel={userNivel} xp={userXP} creditos={userCreditos} reputacion={userRep} animalActual="Axolote" />
       <MisionesModal
         isOpen={isMisionesOpen}
         onClose={() => setIsMisionesOpen(false)}
@@ -144,6 +194,15 @@ export default function JovenMode({ openConfig, isConfigActive }) {
           drawRouteRef.current?.({ nodos, nombre });
           setIsMisionesOpen(false);
         }}
+      />
+      <ConfigModal
+        isOpen={isConfigOpen}
+        onClose={() => setIsConfigOpen(false)}
+        rutaSana={rutaSana}
+        onRutaSana={setRutaSana}
+        modoActual="joven"
+        onModoChange={handleModoChange}
+        tarjetaVinculada={tarjetaVinculada}
       />
     </div>
   );
