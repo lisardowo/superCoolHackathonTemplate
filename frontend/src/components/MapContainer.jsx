@@ -195,18 +195,82 @@ function clearRoute(map) {
 }
 
 // ─── Componente ───────────────────────────────────────────────────────────────
-const MapContainer = ({ isSeniorMode, onMapClick, userLocation }) => {
+const MapContainer = ({ isSeniorMode, onMapClick, userLocation, onTrazarRutaRef, drawRouteRef, onUserLocation }) => {
   const mapContainerRef = useRef(null);
   const mapRef          = useRef(null);
   const markersRef      = useRef([]);
   const userMarkerRef   = useRef(null);
   // Ref para siempre tener la ubicación actual sin recrear listeners
-  const userLocRef      = useRef(userLocation ?? { lat: 19.0481, lng: -98.2138 });
+  const userLocRef = useRef(userLocation ?? { lat: 19.0481, lng: -98.2138 });
+
+  // Notificar ubicación inicial al padre si no viene de prop
+  useEffect(() => {
+    onUserLocation?.(userLocRef.current);
+  }, []);  // eslint-disable-line react-hooks/exhaustive-deps
 
   const [mapError,   setMapError]   = useState('');
   const [allPoints,  setAllPoints]  = useState([]);
   const [routeState, setRouteState] = useState(null);  // null | 'loading' | 'ok' | 'error'
   const [routeDest,  setRouteDest]  = useState('');
+
+  // ── Función reutilizable: calcular y dibujar ruta ─────────────────────────
+  const fetchAndDrawRoute = React.useCallback(async ({ lat, lng, name = 'destino' }) => {
+    const map    = mapRef.current;
+    const origin = userLocRef.current;
+    if (!map || !origin) { console.warn('Sin mapa o ubicación de usuario'); return; }
+
+    setRouteDest(name);
+    setRouteState('loading');
+
+    try {
+      const res = await fetch(`${API_BASE}/map/route`, {
+        method:  'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          origen:  [origin.lat, origin.lng],
+          destino: [lat, lng],
+        }),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      const data = await res.json();   // { nodos: [[lat, lng], ...] }
+
+      if (!data.nodos?.length) throw new Error('Respuesta sin nodos');
+
+      const paint = () => { drawRoute(map, data.nodos); setRouteState('ok'); };
+      map.isStyleLoaded() ? paint() : map.once('load', paint);
+
+    } catch (err) {
+      console.error('❌ Ruta fallida:', err);
+      setRouteState('error');
+    }
+  }, []);
+
+  // Ref para que el listener DOM nativo siempre apunte a la versión actual
+  // de fetchAndDrawRoute sin stale closure (el listener se registra una sola vez).
+  const fetchAndDrawRouteRef = useRef(fetchAndDrawRoute);
+  useEffect(() => { fetchAndDrawRouteRef.current = fetchAndDrawRoute; }, [fetchAndDrawRoute]);
+
+  // Exponer al padre via onTrazarRutaRef (evita prop drilling profundo)
+  useEffect(() => {
+    if (onTrazarRutaRef) onTrazarRutaRef.current = fetchAndDrawRoute;
+  }, [fetchAndDrawRoute, onTrazarRutaRef]);
+
+  // drawRouteRef: el padre lo pasa para que MisionesModal dibuje rutas directamente.
+  // Recibe { nodos, nombre } — nodos es [[lat,lng],...] igual que el back devuelve.
+  useEffect(() => {
+    if (!drawRouteRef) return;
+    drawRouteRef.current = ({ nodos, nombre }) => {
+      const map = mapRef.current;
+      if (!map || !nodos?.length) return;
+      const paint = () => {
+        drawRoute(map, nodos);
+        setRouteDest(nombre ?? 'Misión');
+        setRouteState('ok');
+      };
+      map.isStyleLoaded() ? paint() : map.once('load', paint);
+    };
+  }, [drawRouteRef]);
 
   useEffect(() => {
     if (userLocation) userLocRef.current = userLocation;
@@ -261,8 +325,9 @@ const MapContainer = ({ isSeniorMode, onMapClick, userLocation }) => {
     }
 
     // ── Delegación de clicks en botones "Ir aquí" dentro de popups ────────
-    // Usamos el contenedor del mapa para capturar clicks en HTML de popups
-    mapContainerRef.current.addEventListener('click', async (e) => {
+    // Los popups de Mapbox se montan en document.body, fuera del contenedor
+    // del mapa, por eso el listener debe estar en document.
+    const handlePopupNavClick = async (e) => {
       const btn = e.target.closest('.popup-nav-btn');
       if (!btn) return;
 
@@ -275,38 +340,18 @@ const MapContainer = ({ isSeniorMode, onMapClick, userLocation }) => {
 
       if (!origin) { console.warn('Sin ubicación de usuario'); return; }
 
-      // Cerrar todos los popups abiertos
       document.querySelectorAll('.mapboxgl-popup').forEach((p) => p.remove());
 
-      setRouteDest(destName);
-      setRouteState('loading');
+      await fetchAndDrawRouteRef.current({ lat: destLat, lng: destLng, name: destName });
+    };
 
-      try {
-        const res = await fetch(`${API_BASE}/map/route`, {
-          method:  'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            origen:  [origin.lat, origin.lng],
-            destino: [destLat, destLng],
-          }),
-        });
+    document.addEventListener('click', handlePopupNavClick);
 
-        if (!res.ok) throw new Error(`HTTP ${res.status}`);
-        const data = await res.json();   // { nodos: [[lat, lng], ...] }
-
-        if (!data.nodos?.length) throw new Error('Respuesta sin nodos');
-
-        const paint = () => { drawRoute(map, data.nodos); setRouteState('ok'); };
-        map.isStyleLoaded() ? paint() : map.once('load', paint);
-
-      } catch (err) {
-        console.error('❌ Ruta fallida:', err);
-        setRouteState('error');
-      }
-    });
-
-    return () => map.remove();
-  }, [isSeniorMode]);
+    return () => {
+      document.removeEventListener('click', handlePopupNavClick);
+      map.remove();
+    };
+  }, [isSeniorMode, fetchAndDrawRoute]);
 
   // ── 3. Marcador de usuario ────────────────────────────────────────────────
   useEffect(() => {

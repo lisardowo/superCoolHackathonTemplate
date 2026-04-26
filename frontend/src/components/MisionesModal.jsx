@@ -2,12 +2,14 @@ import React, { useState } from 'react';
 import './PopupFrame.css';
 import './MisionesModal.css';
 
+const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8000';
+
 // ─── Tipos de misión ──────────────────────────────────────────────────────────
 const TIPO_META = {
-  confirmar_reporte:   { label: 'Confirmar reporte', cls: 'mis-badge--confirm' },
-  cambiar_bateria:     { label: 'Cambiar batería',   cls: 'mis-badge--bateria' },
-  mover_dispositivo:   { label: 'Mover dispositivo', cls: 'mis-badge--mover'   },
-  ayudar_usuario:      { label: 'Ayudar usuario',    cls: 'mis-badge--ayuda'   },
+  confirmar_reporte: { label: 'Confirmar reporte', cls: 'mis-badge--confirm' },
+  cambiar_bateria:   { label: 'Cambiar batería',   cls: 'mis-badge--bateria' },
+  mover_dispositivo: { label: 'Mover dispositivo', cls: 'mis-badge--mover'   },
+  ayudar_usuario:    { label: 'Ayudar usuario',    cls: 'mis-badge--ayuda'   },
 };
 
 // ─── Misiones de demo ─────────────────────────────────────────────────────────
@@ -71,21 +73,67 @@ const IconRuta = () => (
 );
 
 // ─── Tarjeta de misión ────────────────────────────────────────────────────────
-function MisionCard({ mision, onCompletar, completada }) {
+// onRutaCalculada(nodos): el padre recibe [[lat,lng],...] y los dibuja en el mapa
+function MisionCard({ mision, onCompletar, completada, userLocation, onRutaCalculada }) {
   const meta = TIPO_META[mision.tipo];
+  // null | 'loading' | 'ok' | 'error'
+  const [rutaEstado, setRutaEstado] = useState(null);
 
-  const handleTrazarRuta = () => {
-    // TODO: conectar con MapContainer para trazar ruta a mision.coords
-    console.log('Trazar ruta a', mision.coords, mision.lugar);
+  const handleTrazarRuta = async () => {
+    if (!userLocation) {
+      console.warn('Sin ubicación de usuario');
+      return;
+    }
+
+    setRutaEstado('loading');
+
+    try {
+      const res = await fetch(`${API_BASE}/map/route`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          origen:  [userLocation.lat, userLocation.lng],
+          destino: [mision.coords.lat, mision.coords.lng],
+        }),
+      });
+
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+      const data = await res.json(); // { nodos: [[lat, lng], ...] }
+
+      if (!data.nodos?.length) throw new Error('Respuesta sin nodos');
+
+      setRutaEstado('ok');
+      onRutaCalculada?.({ nodos: data.nodos, nombre: mision.titulo });
+
+    } catch (err) {
+      console.error('❌ Ruta misión fallida:', err);
+      setRutaEstado('error');
+      // Limpiar el error después de 3s para que el botón vuelva a quedar usable
+      setTimeout(() => setRutaEstado(null), 3000);
+    }
   };
+
+  // Texto e ícono del botón según estado
+  const btnLabel = {
+    null:     'Trazar ruta',
+    loading:  'Calculando…',
+    ok:       'Ruta activa',
+    error:    'Error, reintentar',
+  }[rutaEstado] ?? 'Trazar ruta';
 
   return (
     <div className={`mis-card ${completada ? 'is-completada' : ''}`}>
       <div className="mis-card-top">
         <span className={`mis-badge ${meta.cls}`}>{meta.label}</span>
-        <button className="mis-ruta-btn" onClick={handleTrazarRuta} aria-label="Trazar ruta">
+        <button
+          className={`mis-ruta-btn ${rutaEstado ? `mis-ruta-btn--${rutaEstado}` : ''}`}
+          onClick={handleTrazarRuta}
+          disabled={rutaEstado === 'loading' || rutaEstado === 'ok'}
+          aria-label="Trazar ruta"
+        >
           <IconRuta />
-          Trazar ruta
+          {btnLabel}
         </button>
       </div>
 
@@ -149,20 +197,21 @@ function RewardOverlay({ mision, onAceptar }) {
 }
 
 // ─── Modal principal ──────────────────────────────────────────────────────────
-export default function MisionesModal({ isOpen, onClose, onRecompensa }) {
-  const [completadas, setCompletadas] = useState(new Set());
+// Props:
+//   isOpen, onClose, onRecompensa  — igual que antes
+//   userLocation                   — { lat, lng } del usuario (viene del padre)
+//   onRutaCalculada({ nodos, nombre }) — el padre llama drawRoute con los nodos
+export default function MisionesModal({ isOpen, onClose, onRecompensa, userLocation, onRutaCalculada }) {
+  const [completadas,  setCompletadas]  = useState(new Set());
   const [rewardMision, setRewardMision] = useState(null);
 
   if (!isOpen) return null;
 
-  const handleCompletar = (mision) => {
-    setRewardMision(mision);
-  };
+  const handleCompletar = (mision) => setRewardMision(mision);
 
   const handleAceptarReward = () => {
     if (rewardMision) {
       setCompletadas((prev) => new Set([...prev, rewardMision.id]));
-      // Notificar al padre para actualizar XP / créditos del usuario
       onRecompensa?.({ xp: rewardMision.xp, creditos: rewardMision.creditos });
       setRewardMision(null);
     }
@@ -194,6 +243,8 @@ export default function MisionesModal({ isOpen, onClose, onRecompensa }) {
               mision={m}
               onCompletar={handleCompletar}
               completada={completadas.has(m.id)}
+              userLocation={userLocation}
+              onRutaCalculada={onRutaCalculada}
             />
           ))}
         </div>

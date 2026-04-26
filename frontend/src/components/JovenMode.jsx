@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { AlertTriangle, CreditCard, QrCode, User, Flag } from 'lucide-react';
 import MapContainer from './MapContainer';
 import GlassIcons from './GlassIcons';
@@ -34,7 +34,9 @@ export default function JovenMode({ onModoChange }) {
   const [isConfigOpen, setIsConfigOpen] = useState(false);
   const [isTripActive, setIsTripActive] = useState(false);
 
-  // Config state
+  // Ref que MapContainer rellena con su función drawRoute
+  const drawRouteRef = useRef(null);
+  const [userLocation, setUserLocation] = useState(null);
   const [rutaSana, setRutaSana] = useState(false);
   const [tarjetaVinculada, setTarjetaVinculada] = useState(false);
 
@@ -87,7 +89,11 @@ export default function JovenMode({ onModoChange }) {
       </button>
 
       <main className="j-map-area">
-        <MapContainer isSeniorMode={false} />
+        <MapContainer
+          isSeniorMode={false}
+          drawRouteRef={drawRouteRef}
+          onUserLocation={setUserLocation}
+        />
         <nav className="j-tab-bar">
           <GlassIcons items={NAV_ITEMS} activeIndex={activeNavIndex} isActive={isActive} onItemClick={handleNavClick} />
         </nav>
@@ -131,7 +137,16 @@ export default function JovenMode({ onModoChange }) {
       <PaymentsModal isOpen={isPaymentsOpen} onClose={() => setIsPaymentsOpen(false)} saldo={userSaldo} tarjeta={userTarjeta} />
       <ReporteModal  isOpen={isReporteOpen}  onClose={() => setIsReporteOpen(false)}  ubicacion="Ubicación actual" />
       <CuentaModal   isOpen={isCuentaOpen}   onClose={() => setIsCuentaOpen(false)}   usuario={userName} nivel={userNivel} xp={userXP} creditos={userCreditos} reputacion={userRep} animalActual="Axolote" />
-      <MisionesModal isOpen={isMisionesOpen} onClose={() => setIsMisionesOpen(false)} onRecompensa={handleRecompensa} />
+      <MisionesModal
+        isOpen={isMisionesOpen}
+        onClose={() => setIsMisionesOpen(false)}
+        onRecompensa={handleRecompensa}
+        userLocation={userLocation}
+        onRutaCalculada={({ nodos, nombre }) => {
+          drawRouteRef.current?.({ nodos, nombre });
+          setIsMisionesOpen(false);
+        }}
+      />
       <ConfigModal
         isOpen={isConfigOpen}
         onClose={() => setIsConfigOpen(false)}
