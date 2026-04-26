@@ -1,3 +1,37 @@
+
+from pydantic import BaseModel
+
+clientes_path = "backend/app/Base_de_datos/clientes.json"
+"""
+class CalcCreditsRequest(BaseModel):
+	user_id: str
+	report_type: str
+	validated: bool = False
+
+def calc_credits(payload: CalcCreditsRequest) -> dict:
+
+    with open(clientes_path, "r", encoding="utf-8") as f:
+        data = json.load(f)
+
+    if str(id) in data: data[str(id)]["creditos"] += 15
+
+    with open(clientes_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=4)
+    #base = 5
+	validation_bonus = 10 if payload.validated else 0
+	total = base + severity_bonus + validation_bonus
+	return {
+		"user_id": payload.user_id,
+		"report_type": payload.report_type,
+		"credits": total,
+		"breakdown": {
+			"base": base,
+			"validation_bonus": validation_bonus,
+		},
+	}
+
+""""""
+
 import json
 from datetime import datetime
 
@@ -65,6 +99,7 @@ def calcular_recompensa(usuario_id, tipo_accion, estacion_vacia=False, hora_pico
     historial.append(resultado)
     return json.dumps(resultado, ensure_ascii=False, indent=2)
 
+"""
 
 def exportar_resumen():
     """Devuelve un JSON con el ranking de usuarios y el historial completo."""

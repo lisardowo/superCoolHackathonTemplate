@@ -37,15 +37,15 @@
 
 pip freeze > requirements.txt
 
-# Sistema de Navegación
+# Sistema de Navegación - Map
 
 En esta versión de la app, se dan manualmente los valores de las variables.
 
 origen, destino, coords_ruta.
 
-La salida de las coordenadas no son capaces de conectar con el front-end aún, y estas se guardan temporalmente en tuplas.
+reportes_por_arista = {
+    (nodo_A, nodo_B): {"positivos": 0, "negativos": 0},
+    (nodo_C, nodo_D): {"positivos": 2, "negativos": 5},
+}
 
- # Clientes
-
-La clase de clientes y Sistema estan sin ninguna forma de interactuar con el front, solo se añadio la funcion de las funciones. 
-Hay que agregar como se comunica con el front.
+ La salida de las coordenadas no son capaces de conectar con el front-end aún, y estas se guardan temporalmente en tuplas.
