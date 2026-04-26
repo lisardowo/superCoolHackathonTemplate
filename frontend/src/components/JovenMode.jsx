@@ -3,6 +3,7 @@ import { AlertTriangle, CreditCard, QrCode, User, Flag } from 'lucide-react';
 import { IconConfig } from '../utils';
 import MapContainer from './MapContainer';
 import GlassIcons from './GlassIcons';
+import PaymentsModal from './PaymentsModal';
 import './JovenMode.css';
 
 const NAV_ITEMS = [
@@ -16,7 +17,7 @@ const NAV_ITEMS = [
     label: 'Mis tarjetas',
     color: 'talavera',
     icon: <CreditCard size={20} strokeWidth={2.2} />,
-    menuItems: ['Tarjeta RUTA', 'Metodos de pago']
+    menuItems: []                          // manejado por PaymentsModal
   },
   {
     label: 'Escanear',
@@ -39,13 +40,24 @@ const NAV_ITEMS = [
   }
 ];
 
+const TARJETAS_IDX = 1;   // índice de "Mis tarjetas" en NAV_ITEMS
+
 export default function JovenMode({ openConfig, isConfigActive = false }) {
   const [activeNavIndex, setActiveNavIndex] = useState(2);
   const [isActive, setIsActive] = useState(false);
   const [isSectionMenuOpen, setIsSectionMenuOpen] = useState(false);
-  const [isTripActive, setIsTripActive] = useState(false); // <--- Controla si se muestra el HUD de viaje
+  const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
+  const [isTripActive, setIsTripActive] = useState(false);
+
+  // Datos de usuario (reemplazar con contexto/API real)
+  const userSaldo = 8.0;
+  const userTarjeta = '9999';   // null si no tiene tarjeta vinculada
 
   const handleNavClick = (index) => {
+    if (index === TARJETAS_IDX) {
+      setIsPaymentsOpen(true);
+      return;
+    }
     setActiveNavIndex(index);
     setIsActive(true);
     setIsSectionMenuOpen(true);
@@ -56,7 +68,6 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
     setIsActive(false);
   };
 
-  // Simulación: Al hacer click en el "escaner", activamos el viaje
   const handleSimulateScan = () => {
     setIsTripActive(true);
     handleCloseSectionMenu();
@@ -67,7 +78,6 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
 
   return (
     <div className="joven-container">
-      {/* Botón de Configuración Flotante */}
       <button className={`floating-config-btn ${isConfigActive ? 'is-active' : ''}`} onClick={openConfig}>
         <IconConfig />
       </button>
@@ -84,7 +94,6 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
           />
         </nav>
 
-        {/* Tarjeta de Status: Solo visible si isTripActive es true */}
         {isTripActive && (
           <div className="j-status-card glass trip-active">
             <div className="j-status-header">
@@ -98,6 +107,7 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
         )}
       </main>
 
+      {/* Modal genérico de sección */}
       {isSectionMenuOpen && (
         <div className="modal-overlay" onClick={handleCloseSectionMenu}>
           <div className="modal-content talavera-border j-section-menu" onClick={(e) => e.stopPropagation()}>
@@ -125,6 +135,14 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
           </div>
         </div>
       )}
+
+      {/* Modal de Pagos */}
+      <PaymentsModal
+        isOpen={isPaymentsOpen}
+        onClose={() => setIsPaymentsOpen(false)}
+        saldo={userSaldo}
+        tarjeta={userTarjeta}
+      />
     </div>
   );
 }
