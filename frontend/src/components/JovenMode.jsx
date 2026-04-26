@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { AlertTriangle, CreditCard, QrCode, User, Flag } from 'lucide-react';
-import { IconConfig } from '../utils';
 import MapContainer from './MapContainer';
 import GlassIcons from './GlassIcons';
 import PaymentsModal from './PaymentsModal';
 import ReporteModal from './ReporteModal';
 import CuentaModal from './CuentaModal';
 import MisionesModal from './MisionesModal';
+import ConfigModal from './ConfigModal';
 import './JovenMode.css';
 
 const NAV_ITEMS = [
@@ -17,13 +17,13 @@ const NAV_ITEMS = [
   { label: 'Misiones',     color: 'talavera', icon: <Flag size={20} strokeWidth={2.2} />,           menuItems: [] },
 ];
 
-const REPORTAR_IDX  = 0;
-const TARJETAS_IDX  = 1;
-const ESCANEAR_IDX  = 2;
-const CUENTA_IDX    = 3;
-const MISIONES_IDX  = 4;
+const REPORTAR_IDX = 0;
+const TARJETAS_IDX = 1;
+const ESCANEAR_IDX = 2;
+const CUENTA_IDX   = 3;
+const MISIONES_IDX = 4;
 
-export default function JovenMode({ openConfig, isConfigActive = false }) {
+export default function JovenMode({ onModoChange }) {
   const [activeNavIndex, setActiveNavIndex] = useState(2);
   const [isActive, setIsActive] = useState(false);
   const [isSectionMenuOpen, setIsSectionMenuOpen] = useState(false);
@@ -31,12 +31,16 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
   const [isReporteOpen, setIsReporteOpen] = useState(false);
   const [isCuentaOpen, setIsCuentaOpen] = useState(false);
   const [isMisionesOpen, setIsMisionesOpen] = useState(false);
+  const [isConfigOpen, setIsConfigOpen] = useState(false);
   const [isTripActive, setIsTripActive] = useState(false);
 
-  // Estado de usuario — reemplazar con contexto / API real
+  // Config state
+  const [rutaSana, setRutaSana] = useState(false);
+  const [tarjetaVinculada, setTarjetaVinculada] = useState(false);
+
+  // User state
   const [userXP, setUserXP] = useState(2340);
   const [userCreditos, setUserCreditos] = useState(148);
-
   const userSaldo   = 8.0;
   const userTarjeta = '9999';
   const userNivel   = 7;
@@ -44,10 +48,10 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
   const userName    = 'ajolote_veloz_42';
 
   const handleNavClick = (index) => {
-    if (index === REPORTAR_IDX)  { setIsReporteOpen(true);   return; }
-    if (index === TARJETAS_IDX)  { setIsPaymentsOpen(true);  return; }
-    if (index === CUENTA_IDX)    { setIsCuentaOpen(true);    return; }
-    if (index === MISIONES_IDX)  { setIsMisionesOpen(true);  return; }
+    if (index === REPORTAR_IDX) { setIsReporteOpen(true);  return; }
+    if (index === TARJETAS_IDX) { setIsPaymentsOpen(true); return; }
+    if (index === CUENTA_IDX)   { setIsCuentaOpen(true);   return; }
+    if (index === MISIONES_IDX) { setIsMisionesOpen(true); return; }
     setActiveNavIndex(index);
     setIsActive(true);
     setIsSectionMenuOpen(true);
@@ -61,13 +65,25 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
     setUserCreditos((prev) => prev + creditos);
   };
 
+  const handleModoChange = (modo) => {
+    setIsConfigOpen(false);
+    onModoChange?.(modo);
+  };
+
   const isScanSection = activeNavIndex === ESCANEAR_IDX;
   const activeItem    = NAV_ITEMS[activeNavIndex];
 
   return (
     <div className="joven-container">
-      <button className={`floating-config-btn ${isConfigActive ? 'is-active' : ''}`} onClick={openConfig}>
-        <IconConfig />
+      {/* Config button — usa IconConfig o SVG inline */}
+      <button
+        className={`floating-config-btn ${isConfigOpen ? 'is-active' : ''}`}
+        onClick={() => setIsConfigOpen(true)}
+      >
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          <circle cx="12" cy="12" r="3"/>
+          <path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/>
+        </svg>
       </button>
 
       <main className="j-map-area">
@@ -78,7 +94,7 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
 
         {isTripActive && (
           <div className="j-status-card glass trip-active">
-            <div className="j-status-header"><span className="pulse-dot"></span><h3>Viaje en curso</h3></div>
+            <div className="j-status-header"><span className="pulse-dot" /><h3>Viaje en curso</h3></div>
             <p className="j-status-mission">Misión: Cambia batería en Zócalo.</p>
             <div className="j-status-reward">Premio: <span>+50XP</span></div>
             <button className="btn-end-trip" onClick={() => setIsTripActive(false)}>Terminar</button>
@@ -96,7 +112,7 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
             <div className="modal-body">
               {isScanSection ? (
                 <div className="j-qr-scanner-mock" onClick={handleSimulateScan}>
-                  <div className="j-qr-frame"><div className="j-qr-scan-line"></div></div>
+                  <div className="j-qr-frame"><div className="j-qr-scan-line" /></div>
                   <p>Toca para simular escaneo de Scooter</p>
                 </div>
               ) : (
@@ -112,10 +128,19 @@ export default function JovenMode({ openConfig, isConfigActive = false }) {
         </div>
       )}
 
-      <PaymentsModal  isOpen={isPaymentsOpen}  onClose={() => setIsPaymentsOpen(false)}  saldo={userSaldo} tarjeta={userTarjeta} />
-      <ReporteModal   isOpen={isReporteOpen}   onClose={() => setIsReporteOpen(false)}   ubicacion="Ubicación actual" />
-      <CuentaModal    isOpen={isCuentaOpen}    onClose={() => setIsCuentaOpen(false)}    usuario={userName} nivel={userNivel} xp={userXP} creditos={userCreditos} reputacion={userRep} animalActual="Axolote" />
-      <MisionesModal  isOpen={isMisionesOpen}  onClose={() => setIsMisionesOpen(false)}  onRecompensa={handleRecompensa} />
+      <PaymentsModal isOpen={isPaymentsOpen} onClose={() => setIsPaymentsOpen(false)} saldo={userSaldo} tarjeta={userTarjeta} />
+      <ReporteModal  isOpen={isReporteOpen}  onClose={() => setIsReporteOpen(false)}  ubicacion="Ubicación actual" />
+      <CuentaModal   isOpen={isCuentaOpen}   onClose={() => setIsCuentaOpen(false)}   usuario={userName} nivel={userNivel} xp={userXP} creditos={userCreditos} reputacion={userRep} animalActual="Axolote" />
+      <MisionesModal isOpen={isMisionesOpen} onClose={() => setIsMisionesOpen(false)} onRecompensa={handleRecompensa} />
+      <ConfigModal
+        isOpen={isConfigOpen}
+        onClose={() => setIsConfigOpen(false)}
+        rutaSana={rutaSana}
+        onRutaSana={setRutaSana}
+        modoActual="joven"
+        onModoChange={handleModoChange}
+        tarjetaVinculada={tarjetaVinculada}
+      />
     </div>
   );
 }
