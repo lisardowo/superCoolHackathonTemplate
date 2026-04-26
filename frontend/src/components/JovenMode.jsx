@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { IconConfig } from '../utils';
 import MapContainer from './MapContainer';
 import GlassIcons from './GlassIcons';
+import './PopupFrame.css';
+import './JovenMode.css';
+import './ConfigModal.css';
 
 const NAV_ITEMS = [
   {
@@ -66,6 +69,15 @@ export default function JovenMode({ openConfig }) {
         {/* Renderizamos Mapbox debajo del HUD */}
         <MapContainer isSeniorMode={false} onMapClick={handleMapClick} />
 
+        <nav className="j-tab-bar" aria-label="Navegación principal">
+          <GlassIcons
+            className="j-glass-nav"
+            items={NAV_ITEMS}
+            activeIndex={activeNavIndex}
+            onItemClick={handleNavClick}
+          />
+        </nav>
+
         {/* Notificacion temporal flotante (Demo) */}
         {reportedPothole && (
           <div style={{ position:'absolute', top: '10px', background: '#A52A2A', color: 'white', padding: '10px', borderRadius: '10px', zIndex: 30}}>
@@ -80,15 +92,6 @@ export default function JovenMode({ openConfig }) {
           <div className="j-status-reward">Premio: <span>+50XP</span></div>
         </div>
       </main>
-
-      <nav className="j-tab-bar talavera-border-top" aria-label="Navegación principal">
-        <GlassIcons
-          className="j-glass-nav"
-          items={NAV_ITEMS}
-          activeIndex={activeNavIndex}
-          onItemClick={handleNavClick}
-        />
-      </nav>
 
       {isSectionMenuOpen && (
         <div className="modal-overlay" onClick={() => setIsSectionMenuOpen(false)}>

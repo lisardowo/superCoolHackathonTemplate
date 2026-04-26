@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './index.css';
+import './App.css';
 import JovenMode from './components/JovenMode';
 import SeniorMode from './components/SeniorMode';
 import ConfigModal from './components/ConfigModal';

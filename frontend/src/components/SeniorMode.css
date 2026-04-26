@@ -1,0 +1,104 @@
+.senior-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.s-header {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  background-color: var(--azul-cobalto);
+  color: white;
+}
+
+.s-profile-text {
+  flex-grow: 1;
+  text-align: center;
+  font-size: 28px;
+  font-weight: 800;
+}
+
+.s-menu-btn {
+  color: white;
+}
+
+.s-map-area {
+  flex-grow: 1;
+  background-color: #f9f6f0;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+.s-current-location {
+  background-color: white;
+  padding: 30px 20px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.s-location-title {
+  color: #555;
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+
+.s-location-street {
+  color: var(--marron);
+  font-size: 36px;
+  font-weight: 900;
+  margin-bottom: 24px;
+}
+
+.s-hub-badge {
+  background-color: var(--azul-electrico);
+  color: #000;
+  font-weight: bold;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 20px;
+  display: inline-block;
+  border: 2px solid var(--azul-cobalto);
+}
+
+.s-actions-panel {
+  padding: 20px;
+  background-color: var(--blanco);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.s-btn {
+  border: none;
+  padding: 24px;
+  border-radius: 12px;
+  font-size: 24px;
+  font-weight: 900;
+  color: white;
+  cursor: pointer;
+  box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.s-btn:active {
+  transform: translateY(6px);
+  box-shadow: none;
+}
+
+.s-btn-home {
+  background-color: var(--marron);
+}
+
+.s-btn-help {
+  background-color: var(--azul-cobalto);
+}
+
+.s-btn-voice {
+  background-color: #555;
+  font-size: 20px;
+  color: var(--dorado);
+}

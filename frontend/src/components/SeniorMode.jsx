@@ -1,6 +1,7 @@
 import React from 'react';
 import { IconConfig } from '../utils';
 import MapContainer from './MapContainer';
+import './SeniorMode.css';
 
 export default function SeniorMode({ openConfig }) {
   return (

@@ -1,5 +1,6 @@
 import React from 'react';
-import '../index.css';
+import './PopupFrame.css';
+import './ConfigModal.css';
 
 export default function ConfigModal({ isOpen, onClose, isSenior, toggleMode }) {
   if (!isOpen) return null;

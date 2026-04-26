@@ -1,0 +1,201 @@
+.joven-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+}
+
+.j-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  background-color: var(--blanco);
+  z-index: 10;
+}
+
+.j-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.j-avatar {
+  background-color: var(--azul-electrico);
+  border: 2px solid var(--azul-cobalto);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: inset 0 -3px 0 rgba(0, 0, 0, 0.2);
+}
+
+.pixel-text {
+  font-family: monospace;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.j-username {
+  font-weight: 700;
+  color: var(--azul-cobalto);
+}
+
+.j-map-area {
+  flex-grow: 1;
+  background-color: #f0eade;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.j-status-card {
+  position: absolute;
+  top: 20px;
+  width: 90%;
+  padding: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.j-status-title {
+  color: var(--marron);
+  margin-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.j-status-mission {
+  color: #555;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
+.j-status-reward {
+  font-weight: bold;
+  color: var(--azul-cobalto);
+}
+
+.j-status-reward span {
+  color: var(--dorado);
+}
+
+.j-tab-bar {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  bottom: 26px;
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  background-color: transparent;
+  z-index: 90;
+  pointer-events: none;
+}
+
+.j-glass-nav {
+  width: 100%;
+  pointer-events: auto;
+}
+
+.j-section-menu {
+  width: 92%;
+  max-width: 390px;
+}
+
+.j-qr-scanner-mock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.j-qr-frame {
+  width: min(78vw, 280px);
+  height: min(78vw, 280px);
+  border-radius: 14px;
+  border: 2px solid rgba(0, 71, 171, 0.28);
+  background: linear-gradient(160deg, rgba(0, 71, 171, 0.08), rgba(255, 255, 255, 0.65));
+  position: relative;
+  overflow: hidden;
+}
+
+.j-qr-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 71, 171, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 71, 171, 0.15) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.j-qr-scan-line {
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  height: 3px;
+  border-radius: 999px;
+  background: linear-gradient(90deg, rgba(0, 191, 255, 0), rgba(0, 191, 255, 0.9), rgba(0, 191, 255, 0));
+  box-shadow: 0 0 14px rgba(0, 191, 255, 0.85);
+  animation: qr-scan 2.1s ease-in-out infinite;
+}
+
+.j-qr-corners {
+  position: absolute;
+  inset: 0;
+  border: 0 solid transparent;
+}
+
+.j-qr-corners::before,
+.j-qr-corners::after {
+  content: '';
+  position: absolute;
+  inset: 14px;
+  border-radius: 10px;
+  border: 3px solid transparent;
+  pointer-events: none;
+}
+
+.j-qr-corners::before {
+  border-top-color: var(--azul-cobalto);
+  border-left-color: var(--azul-cobalto);
+  width: 38px;
+  height: 38px;
+  inset: 12px auto auto 12px;
+}
+
+.j-qr-corners::after {
+  border-bottom-color: var(--azul-cobalto);
+  border-right-color: var(--azul-cobalto);
+  width: 38px;
+  height: 38px;
+  inset: auto 12px 12px auto;
+}
+
+.j-qr-caption {
+  color: #35517e;
+  font-weight: 600;
+  text-align: center;
+  font-size: 14px;
+}
+
+@keyframes qr-scan {
+  0% {
+    top: 12%;
+    opacity: 0.7;
+  }
+
+  50% {
+    top: 84%;
+    opacity: 1;
+  }
+
+  100% {
+    top: 12%;
+    opacity: 0.7;
+  }
+}
