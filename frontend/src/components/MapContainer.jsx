@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
-import { createCustomMarker, resolveMarkerProps } from '../src/components/mapMarkers.jsx';
+import { createCustomMarker, resolveMarkerProps } from './mapMarkers.jsx';
 
 // ─── Constantes ───────────────────────────────────────────────────────────────
 const PUEBLA_COORDS = [-98.2062, 19.0413];

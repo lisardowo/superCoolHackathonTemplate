@@ -1,167 +1,325 @@
-.icon-btns {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 0.5rem;
-  width: 100%;
-  padding: 0.4rem 0.3rem 0.2rem;
+/* ─── Design tokens ──────────────────────────────────────────────────────────── */
+:root {
+  /* Azul Talavera — identidad */
+  --tal:           #0047AB;
+  --tal-mid:       rgba(0, 71, 171, 0.45);
+  --tal-soft:      rgba(0, 71, 171, 0.10);
+  --tal-dim:       rgba(0, 71, 171, 0.60);
+
+  /* Acento activo — terracota / rojo Talavera */
+  --accent:        #B84B2B;          /* terracota quemada           */
+  --accent-mid:    rgba(184, 75, 43, 0.45);
+  --accent-glow:   rgba(184, 75, 43, 0.28);
+  --accent-soft:   rgba(184, 75, 43, 0.10);
+  --accent-label:  #9A3520;          /* más oscuro para texto       */
+
+  /* Vidrio */
+  --glass-fill:    rgba(255, 255, 255, 0.14);
+  --glass-fill-h:  rgba(255, 255, 255, 0.22);
+  --glass-border:  rgba(255, 255, 255, 0.50);
+  --glass-shadow:  rgba(0, 20, 60, 0.12);
+  --glass-inset:   rgba(255, 255, 255, 0.72);
+
+  /* Tipografía */
+  --label-rest:    rgba(0, 50, 120, 0.55);
+  --label-hover:   rgba(0, 50, 120, 0.80);
+
+  /* Dimensiones */
+  --btn-size:      2.85rem;
+  --scan-size:     3.55rem;
+  --btn-radius:    0.9rem;
+  --scan-radius:   1.1rem;
 }
 
-.icon-btn {
-  background-color: transparent;
-  outline: none;
-  border: none;
-  position: relative;
-  flex: 1;
-  min-width: 0;
-  height: 4.6rem;
-  perspective: 24em;
-  transform-style: preserve-3d;
-  -webkit-tap-highlight-color: transparent;
-  cursor: pointer;
+/* ─── Barra de vidrio flotante ───────────────────────────────────────────────── */
+.glass-nav {
+  width: 100%;
   pointer-events: auto;
 }
 
-.icon-btn.is-scan {
-  z-index: 2;
-  transform: translateY(-0.35rem);
-}
-
-.icon-btn__back,
-.icon-btn__front,
-.icon-btn__label {
-  transition:
-    opacity 0.35s cubic-bezier(0.83, 0, 0.17, 1),
-    transform 0.35s cubic-bezier(0.83, 0, 0.17, 1);
-}
-
-.icon-btn__back,
-.icon-btn__front {
-  border-radius: 1.05rem;
-  position: absolute;
-  top: 0;
-  left: 50%;
-  width: 3.4rem;
-  height: 3.4rem;
-  transform: translateX(-50%);
-}
-
-.icon-btn.is-scan .icon-btn__back,
-.icon-btn.is-scan .icon-btn__front {
-  width: 3.9rem;
-  height: 3.9rem;
-}
-
-.icon-btn__back {
-  background: linear-gradient(145deg, rgba(22, 86, 158, 0.72), rgba(52, 132, 189, 0.78));
-  box-shadow: 0.45em -0.38em 0.8em rgba(20, 36, 54, 0.2);
-  opacity: 0.95;
-}
-
-.icon-btn__front {
-  overflow: hidden;
-  background-color: rgba(251, 251, 251, 0.2);
-  box-shadow: 0 0 0 0.08rem rgba(167, 197, 224, 0.42) inset;
-  backdrop-filter: blur(0.75em);
-  -webkit-backdrop-filter: blur(0.75em);
+.glass-nav__track {
   display: flex;
-  transform-origin: 80% 50%;
-}
-
-.icon-btn__front::before {
-  content: '';
-  position: absolute;
-  width: 220%;
-  height: 220%;
-  left: 50%;
-  top: 50%;
-  border-radius: 50%;
-  background: radial-gradient(circle, #d48b61 0%, #bb5f3f 55%, #8f3a29 100%);
-  transform: translate(-50%, -50%) scale(0);
-  transform-origin: center;
-  transition: transform 0.42s cubic-bezier(0.25, 0.9, 0.2, 1);
-  z-index: 0;
-}
-
-.icon-btn__front > * {
-  position: relative;
-  z-index: 1;
-}
-
-.icon-btn__icon {
-  margin: auto;
-  width: 1.65rem;
-  height: 1.65rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #2f587f;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-}
-
-.icon-btn__placeholder {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: flex-end;
   width: 100%;
-  height: 100%;
+  padding: 0.45rem 0.5rem 0.3rem;
+
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.6rem;
+  box-shadow:
+    0 8px 32px var(--glass-shadow),
+    0 1px 0   var(--glass-inset) inset,
+    0 -1px 0  rgba(0, 30, 80, 0.06) inset;
 }
 
-.icon-btn__label {
-  font-size: 0.68rem;
-  white-space: nowrap;
-  text-align: center;
-  line-height: 1.2;
-  opacity: 0.86;
+/* ─── Botón base ─────────────────────────────────────────────────────────────── */
+.glass-btn {
+  position: relative;
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.24rem;
+  padding: 0.18rem 0 0.12rem;
+  background: transparent;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.glass-btn:active {
+  transform: scale(0.92);
+}
+
+/* ─── Halo difuso (fondo radial) ─────────────────────────────────────────────── */
+.glass-btn__halo {
   position: absolute;
-  top: 3.65rem;
-  right: 0;
-  left: 0;
-  color: #2f587f;
-  transform: translateY(0);
-  font-weight: 700;
+  top: 40%;
+  left: 50%;
+  width: 140%;
+  height: 140%;
+  transform: translate(-50%, -50%) scale(0.5);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--tal-soft) 0%, transparent 68%);
+  opacity: 0;
+  pointer-events: none;
+  z-index: 0;
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
 
-.icon-btn.is-scan .icon-btn__label {
-  top: 4.15rem;
+/* Halo en hover — azul muy suave */
+.glass-btn:hover .glass-btn__halo {
+  opacity: 0.6;
+  transform: translate(-50%, -50%) scale(0.85);
 }
 
-.icon-btn:hover .icon-btn__back,
-.icon-btn:focus-visible .icon-btn__back {
+/* Halo activo — acento terracota */
+.glass-btn--active .glass-btn__halo {
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 68%);
   opacity: 1;
-  transform: translateX(-50%) rotate(8deg);
-}
-
-.icon-btn:hover .icon-btn__front,
-.icon-btn:focus-visible .icon-btn__front {
-  transform: translateX(-50%) translate3d(0, 0, 1.1em);
-}
-
-.icon-btn.is-active .icon-btn__back {
-  transform: translateX(-50%) rotate(10deg);
-}
-
-.icon-btn.is-active .icon-btn__front {
-  transform: translateX(-50%) translate3d(0, 0, 1.3em);
-  background-color: rgba(255, 228, 214, 0.26);
-}
-
-.icon-btn.is-scan.is-active .icon-btn__front {
-  transform: translateX(-50%) translate3d(0, 0, 1.45em);
-}
-
-.icon-btn.is-active .icon-btn__front::before {
   transform: translate(-50%, -50%) scale(1);
 }
 
-.icon-btn.is-active .icon-btn__icon,
-.icon-btn.is-active .icon-btn__label {
-  color: #0f4c92;
+/* ─── Píldora de vidrio ──────────────────────────────────────────────────────── */
+.glass-btn__pill {
+  position: relative;
+  z-index: 1;
+  width: var(--btn-size);
+  height: var(--btn-size);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--btn-radius);
+
+  background: var(--glass-fill);
+  border: 1px solid var(--glass-border);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow:
+    0 2px 8px  var(--glass-shadow),
+    0 1px 0    var(--glass-inset) inset;
+
+  transition:
+    background     0.3s ease,
+    border-color   0.3s ease,
+    box-shadow     0.3s ease,
+    transform      0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  overflow: hidden;
 }
 
-@media (max-width: 390px) {
-  .icon-btn__label {
-    font-size: 0.62rem;
+/* Brillo especular interno */
+.glass-btn__shine {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 84%;
+  height: 40%;
+  border-radius: 0 0 50% 50%;
+  background: linear-gradient(to bottom, rgba(255,255,255,0.55), transparent);
+  pointer-events: none;
+  z-index: 2;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+/* Hover */
+.glass-btn:hover .glass-btn__pill {
+  background: var(--glass-fill-h);
+  border-color: rgba(255, 255, 255, 0.68);
+  box-shadow:
+    0 4px 14px var(--glass-shadow),
+    0 1px 0    var(--glass-inset) inset;
+  transform: translateY(-2px);
+}
+
+/* Activo — borde terracota + elevación */
+.glass-btn--active .glass-btn__pill {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: var(--accent-mid);
+  box-shadow:
+    0 4px 20px var(--accent-glow),
+    0 0  0 1px var(--accent-soft) inset,
+    0 1px 0    var(--glass-inset) inset;
+  transform: translateY(-4px);
+}
+
+/* ─── Botón Scan (central, más grande) ───────────────────────────────────────── */
+.glass-btn--scan {
+  transform: translateY(-0.45rem);
+}
+
+.glass-btn--scan .glass-btn__pill {
+  width: var(--scan-size);
+  height: var(--scan-size);
+  border-radius: var(--scan-radius);
+  background: rgba(0, 71, 171, 0.08);
+  border-color: var(--tal-mid);
+  box-shadow:
+    0 4px 20px rgba(0, 71, 171, 0.15),
+    0 1px 0    var(--glass-inset) inset;
+}
+
+.glass-btn--scan:hover .glass-btn__pill {
+  background: rgba(0, 71, 171, 0.14);
+  border-color: var(--tal);
+  box-shadow:
+    0 6px 24px rgba(0, 71, 171, 0.22),
+    0 1px 0    var(--glass-inset) inset;
+}
+
+.glass-btn--scan.glass-btn--active .glass-btn__pill {
+  background: var(--accent-soft);
+  border-color: var(--accent-mid);
+  box-shadow:
+    0 6px 24px var(--accent-glow),
+    0 1px 0    var(--glass-inset) inset;
+}
+
+.glass-btn--scan:active {
+  transform: translateY(-0.45rem) scale(0.92);
+}
+
+/* ─── Icono ──────────────────────────────────────────────────────────────────── */
+.glass-btn__icon {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--tal);
+  opacity: 0.55;
+  transition:
+    opacity   0.3s ease,
+    color     0.3s ease,
+    transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  line-height: 0;
+}
+
+/* Fuerza trazo fino en SVGs de Lucide */
+.glass-btn__icon svg {
+  stroke-width: 1.5;
+}
+
+.glass-btn--scan .glass-btn__icon {
+  opacity: 0.75;
+}
+
+/* Hover */
+.glass-btn:hover .glass-btn__icon {
+  opacity: 0.85;
+  transform: scale(1.1);
+}
+
+/* Activo — icono en acento terracota */
+.glass-btn--active .glass-btn__icon {
+  color: var(--accent);
+  opacity: 1;
+  transform: scale(1.12);
+}
+
+.glass-btn--active.glass-btn--scan .glass-btn__icon {
+  color: var(--accent);
+  opacity: 1;
+}
+
+.glass-btn__fallback {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: inherit;
+}
+
+/* ─── Indicador dot activo ───────────────────────────────────────────────────── */
+.glass-btn__dot {
+  position: absolute;
+  bottom: 0.05rem;
+  left: 50%;
+  transform: translateX(-50%) scale(0);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 6px var(--accent-mid);
+  z-index: 2;
+  animation: dot-pop 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+}
+
+@keyframes dot-pop {
+  to { transform: translateX(-50%) scale(1); }
+}
+
+/* ─── Etiqueta ───────────────────────────────────────────────────────────────── */
+.glass-btn__label {
+  position: relative;
+  z-index: 1;
+  font-size: 0.575rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: var(--label-rest);
+  opacity: 0.75;
+  transition:
+    color   0.3s ease,
+    opacity 0.3s ease;
+  line-height: 1;
+}
+
+.glass-btn--scan .glass-btn__label {
+  font-size: 0.555rem;
+}
+
+/* Hover */
+.glass-btn:hover .glass-btn__label {
+  color: var(--label-hover);
+  opacity: 0.9;
+}
+
+/* Activo — acento terracota en label */
+.glass-btn--active .glass-btn__label {
+  color: var(--accent-label);
+  opacity: 1;
+  font-weight: 800;
+}
+
+/* ─── Responsive estrecho ────────────────────────────────────────────────────── */
+@media (max-width: 360px) {
+  :root {
+    --btn-size:  2.55rem;
+    --scan-size: 3.1rem;
+  }
+
+  .glass-btn__label {
+    font-size: 0.52rem;
+  }
+
+  .glass-nav__track {
+    padding: 0.38rem 0.38rem 0.25rem;
+    border-radius: 1.3rem;
   }
 }

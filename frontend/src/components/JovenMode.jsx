@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { AlertTriangle, CreditCard, QrCode, User, Flag } from 'lucide-react';
 import { IconConfig } from '../utils';
-import MapContainer from '../../public/MapContainer';
+import MapContainer from './MapContainer';
 import GlassIcons from './GlassIcons';
 import './JovenMode.css';
 
