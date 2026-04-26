@@ -6,7 +6,6 @@ import PaymentsModal from './PaymentsModal';
 import ReporteModal from './ReporteModal';
 import CuentaModal from './CuentaModal';
 import MisionesModal from './MisionesModal';
-import ConfigModal from './ConfigModal';
 import './JovenMode.css';
 
 const NAV_ITEMS = [
@@ -23,25 +22,23 @@ const ESCANEAR_IDX = 2;
 const CUENTA_IDX   = 3;
 const MISIONES_IDX = 4;
 
-export default function JovenMode({ onModoChange }) {
-  const [activeNavIndex, setActiveNavIndex] = useState(2);
-  const [isActive, setIsActive] = useState(false);
+// openConfig — callback que viene de App.jsx para abrir el ConfigModal global
+export default function JovenMode({ openConfig, isConfigActive }) {
+  const [activeNavIndex,    setActiveNavIndex]    = useState(2);
+  const [isActive,          setIsActive]          = useState(false);
   const [isSectionMenuOpen, setIsSectionMenuOpen] = useState(false);
-  const [isPaymentsOpen, setIsPaymentsOpen] = useState(false);
-  const [isReporteOpen, setIsReporteOpen] = useState(false);
-  const [isCuentaOpen, setIsCuentaOpen] = useState(false);
-  const [isMisionesOpen, setIsMisionesOpen] = useState(false);
-  const [isConfigOpen, setIsConfigOpen] = useState(false);
-  const [isTripActive, setIsTripActive] = useState(false);
+  const [isPaymentsOpen,    setIsPaymentsOpen]    = useState(false);
+  const [isReporteOpen,     setIsReporteOpen]     = useState(false);
+  const [isCuentaOpen,      setIsCuentaOpen]      = useState(false);
+  const [isMisionesOpen,    setIsMisionesOpen]    = useState(false);
+  const [isTripActive,      setIsTripActive]      = useState(false);
 
-  // Ref que MapContainer rellena con su función drawRoute
-  const drawRouteRef = useRef(null);
+  // Mapa / rutas
+  const drawRouteRef              = useRef(null);
   const [userLocation, setUserLocation] = useState(null);
-  const [rutaSana, setRutaSana] = useState(false);
-  const [tarjetaVinculada, setTarjetaVinculada] = useState(false);
 
   // User state
-  const [userXP, setUserXP] = useState(2340);
+  const [userXP,      setUserXP]      = useState(2340);
   const [userCreditos, setUserCreditos] = useState(148);
   const userSaldo   = 8.0;
   const userTarjeta = '9999';
@@ -63,13 +60,8 @@ export default function JovenMode({ onModoChange }) {
   const handleSimulateScan     = () => { setIsTripActive(true); handleCloseSectionMenu(); };
 
   const handleRecompensa = ({ xp, creditos }) => {
-    setUserXP((prev) => prev + xp);
+    setUserXP((prev)      => prev + xp);
     setUserCreditos((prev) => prev + creditos);
-  };
-
-  const handleModoChange = (modo) => {
-    setIsConfigOpen(false);
-    onModoChange?.(modo);
   };
 
   const isScanSection = activeNavIndex === ESCANEAR_IDX;
@@ -77,10 +69,11 @@ export default function JovenMode({ onModoChange }) {
 
   return (
     <div className="joven-container">
-      {/* Config button — usa IconConfig o SVG inline */}
+
+      {/* Botón config — abre el ConfigModal que vive en App.jsx */}
       <button
-        className={`floating-config-btn ${isConfigOpen ? 'is-active' : ''}`}
-        onClick={() => setIsConfigOpen(true)}
+        className={`floating-config-btn ${isConfigActive ? 'is-active' : ''}`}
+        onClick={openConfig}
       >
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="12" r="3"/>
@@ -136,7 +129,12 @@ export default function JovenMode({ onModoChange }) {
 
       <PaymentsModal isOpen={isPaymentsOpen} onClose={() => setIsPaymentsOpen(false)} saldo={userSaldo} tarjeta={userTarjeta} />
       <ReporteModal  isOpen={isReporteOpen}  onClose={() => setIsReporteOpen(false)}  ubicacion="Ubicación actual" />
-      <CuentaModal   isOpen={isCuentaOpen}   onClose={() => setIsCuentaOpen(false)}   usuario={userName} nivel={userNivel} xp={userXP} creditos={userCreditos} reputacion={userRep} animalActual="Axolote" />
+      <CuentaModal
+        isOpen={isCuentaOpen}
+        onClose={() => setIsCuentaOpen(false)}
+        usuario={userName} nivel={userNivel} xp={userXP}
+        creditos={userCreditos} reputacion={userRep} animalActual="Axolote"
+      />
       <MisionesModal
         isOpen={isMisionesOpen}
         onClose={() => setIsMisionesOpen(false)}
@@ -146,15 +144,6 @@ export default function JovenMode({ onModoChange }) {
           drawRouteRef.current?.({ nodos, nombre });
           setIsMisionesOpen(false);
         }}
-      />
-      <ConfigModal
-        isOpen={isConfigOpen}
-        onClose={() => setIsConfigOpen(false)}
-        rutaSana={rutaSana}
-        onRutaSana={setRutaSana}
-        modoActual="joven"
-        onModoChange={handleModoChange}
-        tarjetaVinculada={tarjetaVinculada}
       />
     </div>
   );
