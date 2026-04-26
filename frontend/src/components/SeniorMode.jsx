@@ -3,12 +3,12 @@ import { IconConfig } from '../utils';
 import MapContainer from './MapContainer';
 import './SeniorMode.css';
 
-export default function SeniorMode({ openConfig }) {
+export default function SeniorMode({ openConfig, isConfigActive = false }) {
   return (
     <div className="senior-container">
       {/* Header Simplificado */}
       <header className="s-header">
-        <IconConfig className="icon-small s-menu-btn" onClick={openConfig} />
+        <IconConfig className={`icon-small s-menu-btn ${isConfigActive ? 'is-active' : ''}`} onClick={openConfig} />
         <h1 className="s-profile-text">Hola, Juan!</h1>
       </header>
 

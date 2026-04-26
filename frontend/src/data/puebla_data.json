@@ -1,0 +1,838 @@
+{
+  "transporte": {
+    "lineas": [
+      {
+        "id": "L1",
+        "nombre": "Línea 1",
+        "color": "#E63946",
+        "terminal_origen": "Terminal Tlaxcalancingo",
+        "terminal_destino": "Terminal Chachapa",
+        "total_estaciones": 30,
+        "estaciones": [
+          {
+            "id": "l1-01",
+            "nombre": "Terminal Tlaxcalancingo",
+            "lat": 19.0229,
+            "lng": -98.2744,
+            "transferencias": []
+          },
+          {
+            "id": "l1-02",
+            "nombre": "Emiliano Zapata",
+            "lat": 19.026,
+            "lng": -98.269,
+            "transferencias": []
+          },
+          {
+            "id": "l1-03",
+            "nombre": "Carmen Serdán",
+            "lat": 19.0285,
+            "lng": -98.263,
+            "transferencias": []
+          },
+          {
+            "id": "l1-04",
+            "nombre": "Universidad Madero",
+            "lat": 19.0305,
+            "lng": -98.258,
+            "transferencias": []
+          },
+          {
+            "id": "l1-05",
+            "nombre": "Zavaleta",
+            "lat": 19.032,
+            "lng": -98.252,
+            "transferencias": []
+          },
+          {
+            "id": "l1-06",
+            "nombre": "Niño Poblano",
+            "lat": 19.033,
+            "lng": -98.245,
+            "transferencias": []
+          },
+          {
+            "id": "l1-07",
+            "nombre": "Estrellas del Sur",
+            "lat": 19.036,
+            "lng": -98.238,
+            "transferencias": []
+          },
+          {
+            "id": "l1-08",
+            "nombre": "Las Ánimas",
+            "lat": 19.04,
+            "lng": -98.228,
+            "transferencias": []
+          },
+          {
+            "id": "l1-09",
+            "nombre": "31 Poniente",
+            "lat": 19.0425,
+            "lng": -98.224,
+            "transferencias": []
+          },
+          {
+            "id": "l1-10",
+            "nombre": "Matamoros",
+            "lat": 19.045,
+            "lng": -98.22,
+            "transferencias": []
+          },
+          {
+            "id": "l1-11",
+            "nombre": "Juárez Serdán",
+            "lat": 19.052,
+            "lng": -98.212,
+            "transferencias": []
+          },
+          {
+            "id": "l1-12",
+            "nombre": "Nacozari",
+            "lat": 19.0555,
+            "lng": -98.2075,
+            "transferencias": []
+          },
+          {
+            "id": "l1-13",
+            "nombre": "Mercado de Sabores",
+            "lat": 19.0565,
+            "lng": -98.204,
+            "transferencias": [
+              "L2"
+            ]
+          },
+          {
+            "id": "l1-14",
+            "nombre": "11 Norte / Sur",
+            "lat": 19.0578,
+            "lng": -98.201,
+            "transferencias": []
+          },
+          {
+            "id": "l1-15",
+            "nombre": "Santa Anita",
+            "lat": 19.059,
+            "lng": -98.1985,
+            "transferencias": []
+          },
+          {
+            "id": "l1-16",
+            "nombre": "Museo del Ferrocarril",
+            "lat": 19.0605,
+            "lng": -98.195,
+            "transferencias": [
+              "L2"
+            ]
+          },
+          {
+            "id": "l1-17",
+            "nombre": "18 Poniente",
+            "lat": 19.062,
+            "lng": -98.192,
+            "transferencias": []
+          },
+          {
+            "id": "l1-18",
+            "nombre": "San Antonio",
+            "lat": 19.064,
+            "lng": -98.188,
+            "transferencias": []
+          },
+          {
+            "id": "l1-19",
+            "nombre": "China Poblana",
+            "lat": 19.0665,
+            "lng": -98.185,
+            "transferencias": [
+              "L3"
+            ]
+          },
+          {
+            "id": "l1-20",
+            "nombre": "Los Lavaderos",
+            "lat": 19.068,
+            "lng": -98.182,
+            "transferencias": []
+          },
+          {
+            "id": "l1-21",
+            "nombre": "Plaza Loreto",
+            "lat": 19.067,
+            "lng": -98.178,
+            "transferencias": []
+          },
+          {
+            "id": "l1-22",
+            "nombre": "Ignacio Zaragoza",
+            "lat": 19.066,
+            "lng": -98.175,
+            "transferencias": []
+          },
+          {
+            "id": "l1-23",
+            "nombre": "Los Fuertes",
+            "lat": 19.0655,
+            "lng": -98.173,
+            "transferencias": []
+          },
+          {
+            "id": "l1-24",
+            "nombre": "Tecnológico",
+            "lat": 19.0653,
+            "lng": -98.172,
+            "transferencias": []
+          },
+          {
+            "id": "l1-25",
+            "nombre": "La Ciénega",
+            "lat": 19.0645,
+            "lng": -98.165,
+            "transferencias": []
+          },
+          {
+            "id": "l1-26",
+            "nombre": "Bosques",
+            "lat": 19.061,
+            "lng": -98.15,
+            "transferencias": []
+          },
+          {
+            "id": "l1-27",
+            "nombre": "Amalucan",
+            "lat": 19.05,
+            "lng": -98.135,
+            "transferencias": []
+          },
+          {
+            "id": "l1-28",
+            "nombre": "Universidad Tecnológica",
+            "lat": 19.0485,
+            "lng": -98.13,
+            "transferencias": []
+          },
+          {
+            "id": "l1-29",
+            "nombre": "Rivera Anaya",
+            "lat": 19.047,
+            "lng": -98.125,
+            "transferencias": []
+          },
+          {
+            "id": "l1-30",
+            "nombre": "Terminal Chachapa",
+            "lat": 19.0437,
+            "lng": -98.1157,
+            "transferencias": []
+          }
+        ]
+      },
+      {
+        "id": "L2",
+        "nombre": "Línea 2",
+        "color": "#2196F3",
+        "terminal_origen": "Terminal Margaritas",
+        "terminal_destino": "Terminal Diagonal",
+        "total_estaciones": 28,
+        "estaciones": [
+          {
+            "id": "l2-01",
+            "nombre": "Terminal Margaritas",
+            "lat": 18.9897,
+            "lng": -98.2485,
+            "transferencias": []
+          },
+          {
+            "id": "l2-02",
+            "nombre": "Tabachines",
+            "lat": 18.9935,
+            "lng": -98.2456,
+            "transferencias": []
+          },
+          {
+            "id": "l2-03",
+            "nombre": "Azaleas",
+            "lat": 18.997,
+            "lng": -98.2429,
+            "transferencias": []
+          },
+          {
+            "id": "l2-04",
+            "nombre": "Pino Suárez",
+            "lat": 19.001,
+            "lng": -98.2398,
+            "transferencias": []
+          },
+          {
+            "id": "l2-05",
+            "nombre": "Independencia",
+            "lat": 19.0045,
+            "lng": -98.2372,
+            "transferencias": []
+          },
+          {
+            "id": "l2-06",
+            "nombre": "Olivos",
+            "lat": 19.008,
+            "lng": -98.2345,
+            "transferencias": []
+          },
+          {
+            "id": "l2-07",
+            "nombre": "Centro Sur",
+            "lat": 19.0105,
+            "lng": -98.2326,
+            "transferencias": []
+          },
+          {
+            "id": "l2-08",
+            "nombre": "Periférico",
+            "lat": 19.0123,
+            "lng": -98.2312,
+            "transferencias": []
+          },
+          {
+            "id": "l2-09",
+            "nombre": "San Bartolo",
+            "lat": 19.0155,
+            "lng": -98.2288,
+            "transferencias": []
+          },
+          {
+            "id": "l2-10",
+            "nombre": "Yucatán",
+            "lat": 19.0185,
+            "lng": -98.2265,
+            "transferencias": []
+          },
+          {
+            "id": "l2-11",
+            "nombre": "Tarascos",
+            "lat": 19.0215,
+            "lng": -98.2243,
+            "transferencias": []
+          },
+          {
+            "id": "l2-12",
+            "nombre": "Torrecillas",
+            "lat": 19.0253,
+            "lng": -98.2215,
+            "transferencias": []
+          },
+          {
+            "id": "l2-13",
+            "nombre": "Tecamachalco",
+            "lat": 19.028,
+            "lng": -98.2193,
+            "transferencias": []
+          },
+          {
+            "id": "l2-14",
+            "nombre": "Club de Golf",
+            "lat": 19.031,
+            "lng": -98.217,
+            "transferencias": []
+          },
+          {
+            "id": "l2-15",
+            "nombre": "Cúmulo de Virgo",
+            "lat": 19.0341,
+            "lng": -98.2144,
+            "transferencias": []
+          },
+          {
+            "id": "l2-16",
+            "nombre": "Juan Pablo II",
+            "lat": 19.037,
+            "lng": -98.212,
+            "transferencias": []
+          },
+          {
+            "id": "l2-17",
+            "nombre": "Alpha",
+            "lat": 19.0395,
+            "lng": -98.21,
+            "transferencias": []
+          },
+          {
+            "id": "l2-18",
+            "nombre": "Panteones",
+            "lat": 19.0415,
+            "lng": -98.2085,
+            "transferencias": []
+          },
+          {
+            "id": "l2-19",
+            "nombre": "Espinosa Yglesias",
+            "lat": 19.0439,
+            "lng": -98.2067,
+            "transferencias": []
+          },
+          {
+            "id": "l2-20",
+            "nombre": "Revolución",
+            "lat": 19.0465,
+            "lng": -98.2047,
+            "transferencias": []
+          },
+          {
+            "id": "l2-21",
+            "nombre": "Santiago",
+            "lat": 19.0485,
+            "lng": -98.2032,
+            "transferencias": []
+          },
+          {
+            "id": "l2-22",
+            "nombre": "Héroes de la Reforma",
+            "lat": 19.0508,
+            "lng": -98.2014,
+            "transferencias": []
+          },
+          {
+            "id": "l2-23",
+            "nombre": "Paseo Bravo",
+            "lat": 19.0525,
+            "lng": -98.2001,
+            "transferencias": []
+          },
+          {
+            "id": "l2-24",
+            "nombre": "Mercado de Sabores",
+            "lat": 19.0545,
+            "lng": -98.1985,
+            "transferencias": [
+              "L1"
+            ]
+          },
+          {
+            "id": "l2-25",
+            "nombre": "Museo del Ferrocarril",
+            "lat": 19.0565,
+            "lng": -98.197,
+            "transferencias": [
+              "L1"
+            ]
+          },
+          {
+            "id": "l2-26",
+            "nombre": "Nacozari",
+            "lat": 19.0583,
+            "lng": -98.1956,
+            "transferencias": []
+          },
+          {
+            "id": "l2-27",
+            "nombre": "Esperanza",
+            "lat": 19.06,
+            "lng": -98.1943,
+            "transferencias": []
+          },
+          {
+            "id": "l2-28",
+            "nombre": "Terminal Diagonal",
+            "lat": 19.0617,
+            "lng": -98.1929,
+            "transferencias": []
+          }
+        ]
+      },
+      {
+        "id": "L3",
+        "nombre": "Línea 3",
+        "color": "#4CAF50",
+        "terminal_origen": "Terminal Valsequillo",
+        "terminal_destino": "Terminal CAPU",
+        "total_estaciones": 26,
+        "estaciones": [
+          {
+            "id": "l3-01",
+            "nombre": "Terminal Valsequillo",
+            "lat": 18.995,
+            "lng": -98.1956,
+            "transferencias": [
+              "L4"
+            ]
+          },
+          {
+            "id": "l3-02",
+            "nombre": "La Fragua",
+            "lat": 18.9965,
+            "lng": -98.197,
+            "transferencias": []
+          },
+          {
+            "id": "l3-03",
+            "nombre": "Arboledas",
+            "lat": 18.9985,
+            "lng": -98.1985,
+            "transferencias": []
+          },
+          {
+            "id": "l3-04",
+            "nombre": "Xilotzingo",
+            "lat": 19.001,
+            "lng": -98.201,
+            "transferencias": []
+          },
+          {
+            "id": "l3-05",
+            "nombre": "Las Torres",
+            "lat": 19.004,
+            "lng": -98.204,
+            "transferencias": []
+          },
+          {
+            "id": "l3-06",
+            "nombre": "Biblioteca Central (BUAP)",
+            "lat": 19.006,
+            "lng": -98.206,
+            "transferencias": []
+          },
+          {
+            "id": "l3-07",
+            "nombre": "C.U. BUAP",
+            "lat": 19.0075,
+            "lng": -98.2065,
+            "transferencias": []
+          },
+          {
+            "id": "l3-08",
+            "nombre": "Margaritas",
+            "lat": 19.0093,
+            "lng": -98.2079,
+            "transferencias": [
+              "L2"
+            ]
+          },
+          {
+            "id": "l3-09",
+            "nombre": "San Baltazar",
+            "lat": 19.0126,
+            "lng": -98.2091,
+            "transferencias": []
+          },
+          {
+            "id": "l3-10",
+            "nombre": "Bomberos",
+            "lat": 19.0169,
+            "lng": -98.2103,
+            "transferencias": []
+          },
+          {
+            "id": "l3-11",
+            "nombre": "Cristal",
+            "lat": 19.0224,
+            "lng": -98.2125,
+            "transferencias": []
+          },
+          {
+            "id": "l3-12",
+            "nombre": "16 de Septiembre",
+            "lat": 19.0266,
+            "lng": -98.2064,
+            "transferencias": []
+          },
+          {
+            "id": "l3-13",
+            "nombre": "Parque Juárez",
+            "lat": 19.0286,
+            "lng": -98.2035,
+            "transferencias": []
+          },
+          {
+            "id": "l3-14",
+            "nombre": "Fiscalía",
+            "lat": 19.0305,
+            "lng": -98.2016,
+            "transferencias": []
+          },
+          {
+            "id": "l3-15",
+            "nombre": "Niños Héroes",
+            "lat": 19.033,
+            "lng": -98.199,
+            "transferencias": []
+          },
+          {
+            "id": "l3-16",
+            "nombre": "Clínica 2",
+            "lat": 19.039,
+            "lng": -98.1958,
+            "transferencias": []
+          },
+          {
+            "id": "l3-17",
+            "nombre": "Analco",
+            "lat": 19.0409,
+            "lng": -98.1939,
+            "transferencias": []
+          },
+          {
+            "id": "l3-18",
+            "nombre": "San Francisco",
+            "lat": 19.0459,
+            "lng": -98.1897,
+            "transferencias": []
+          },
+          {
+            "id": "l3-19",
+            "nombre": "Xanenetla",
+            "lat": 19.0516,
+            "lng": -98.1907,
+            "transferencias": []
+          },
+          {
+            "id": "l3-20",
+            "nombre": "San Antonio",
+            "lat": 19.0551,
+            "lng": -98.193,
+            "transferencias": []
+          },
+          {
+            "id": "l3-21",
+            "nombre": "Santa María",
+            "lat": 19.061,
+            "lng": -98.1919,
+            "transferencias": []
+          },
+          {
+            "id": "l3-22",
+            "nombre": "China Poblana",
+            "lat": 19.0649,
+            "lng": -98.1911,
+            "transferencias": [
+              "L1"
+            ]
+          },
+          {
+            "id": "l3-23",
+            "nombre": "Unión",
+            "lat": 19.0684,
+            "lng": -98.192,
+            "transferencias": []
+          },
+          {
+            "id": "l3-24",
+            "nombre": "Hidalgo",
+            "lat": 19.0712,
+            "lng": -98.1925,
+            "transferencias": []
+          },
+          {
+            "id": "l3-25",
+            "nombre": "Boulevard Norte",
+            "lat": 19.0734,
+            "lng": -98.1965,
+            "transferencias": []
+          },
+          {
+            "id": "l3-26",
+            "nombre": "Terminal CAPU",
+            "lat": 19.0742,
+            "lng": -98.2026,
+            "transferencias": []
+          }
+        ]
+      },
+      {
+        "id": "L4",
+        "nombre": "Línea 4",
+        "color": "#FF9800",
+        "terminal_origen": "Terminal FINSA",
+        "terminal_destino": "Terminal Valsequillo",
+        "total_estaciones": 12,
+        "estaciones": [
+          {
+            "id": "l4-01",
+            "nombre": "Terminal FINSA",
+            "lat": 19.1172,
+            "lng": -98.2589,
+            "transferencias": []
+          },
+          {
+            "id": "l4-02",
+            "nombre": "San Lorenzo Almecatla",
+            "lat": 19.1085,
+            "lng": -98.257,
+            "transferencias": []
+          },
+          {
+            "id": "l4-03",
+            "nombre": "Cuautlancingo (Puerta 7 VW)",
+            "lat": 19.098,
+            "lng": -98.255,
+            "transferencias": []
+          },
+          {
+            "id": "l4-04",
+            "nombre": "Camino Viejo a Tlaxcala",
+            "lat": 19.0885,
+            "lng": -98.261,
+            "transferencias": []
+          },
+          {
+            "id": "l4-05",
+            "nombre": "Bulevar Forjadores (Explanada Puebla)",
+            "lat": 19.0645,
+            "lng": -98.2882,
+            "transferencias": []
+          },
+          {
+            "id": "l4-06",
+            "nombre": "Recta a Cholula (UDLAP)",
+            "lat": 19.0559,
+            "lng": -98.2831,
+            "transferencias": []
+          },
+          {
+            "id": "l4-07",
+            "nombre": "Camino Real a Cholula",
+            "lat": 19.05,
+            "lng": -98.283,
+            "transferencias": []
+          },
+          {
+            "id": "l4-08",
+            "nombre": "Ciudad Judicial (Atlixcáyotl)",
+            "lat": 19.014,
+            "lng": -98.25,
+            "transferencias": []
+          },
+          {
+            "id": "l4-09",
+            "nombre": "Hospital de la Mujer / 11 Sur",
+            "lat": 18.985,
+            "lng": -98.243,
+            "transferencias": []
+          },
+          {
+            "id": "l4-10",
+            "nombre": "16 de Septiembre / 14 Sur",
+            "lat": 18.98,
+            "lng": -98.22,
+            "transferencias": []
+          },
+          {
+            "id": "l4-11",
+            "nombre": "José María Lafragua (IPETH)",
+            "lat": 18.986,
+            "lng": -98.2,
+            "transferencias": []
+          },
+          {
+            "id": "l4-12",
+            "nombre": "Terminal Valsequillo",
+            "lat": 18.995,
+            "lng": -98.1956,
+            "transferencias": [
+              "L3"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "puntos_interes": {
+    "universidades": [
+      {
+        "id": "uni-buap-cu",
+        "nombre": "BUAP (Ciudad Universitaria)",
+        "lat": 19.0016,
+        "lng": -98.2023,
+        "linea_cercana": "L3",
+        "estacion_cercana": "l3-07"
+      },
+      {
+        "id": "uni-upaep",
+        "nombre": "UPAEP",
+        "lat": 19.0469,
+        "lng": -98.214,
+        "linea_cercana": "L2",
+        "estacion_cercana": "l2-19"
+      },
+      {
+        "id": "uni-udlap",
+        "nombre": "UDLAP",
+        "lat": 19.0559,
+        "lng": -98.2831,
+        "linea_cercana": "L4",
+        "estacion_cercana": "l4-06"
+      },
+      {
+        "id": "uni-ibero",
+        "nombre": "Ibero Puebla",
+        "lat": 19.0232,
+        "lng": -98.2415,
+        "linea_cercana": "L2",
+        "estacion_cercana": "l2-11"
+      },
+      {
+        "id": "uni-tec",
+        "nombre": "Tec de Monterrey (Campus Puebla)",
+        "lat": 19.0195,
+        "lng": -98.2423,
+        "linea_cercana": "L2",
+        "estacion_cercana": "l2-10"
+      },
+      {
+        "id": "uni-anahuac",
+        "nombre": "Anáhuac Puebla",
+        "lat": 19.0664,
+        "lng": -98.2715,
+        "linea_cercana": "L4",
+        "estacion_cercana": "l4-05"
+      },
+      {
+        "id": "uni-itp",
+        "nombre": "Instituto Tecnológico de Puebla",
+        "lat": 19.0653,
+        "lng": -98.172,
+        "linea_cercana": "L1",
+        "estacion_cercana": "l1-24"
+      },
+      {
+        "id": "uni-uvm",
+        "nombre": "UVM (Campus Puebla)",
+        "lat": 19.0435,
+        "lng": -98.2748,
+        "linea_cercana": "L4",
+        "estacion_cercana": "l4-07"
+      },
+      {
+        "id": "uni-uvp",
+        "nombre": "UVP (Universidad del Valle de Puebla)",
+        "lat": 19.0238,
+        "lng": -98.2045,
+        "linea_cercana": "L3",
+        "estacion_cercana": "l3-13"
+      }
+    ],
+    "plazas": [
+      {
+        "id": "plaza-solesta",
+        "nombre": "Plaza Solesta",
+        "lat": 19.0361,
+        "lng": -98.2328,
+        "linea_cercana": "L2",
+        "estacion_cercana": "l2-15"
+      },
+      {
+        "id": "plaza-angelopolis",
+        "nombre": "Centro Comercial Angelópolis",
+        "lat": 19.0305,
+        "lng": -98.2325,
+        "linea_cercana": "L2",
+        "estacion_cercana": "l2-14"
+      },
+      {
+        "id": "plaza-explanada",
+        "nombre": "Explanada Puebla",
+        "lat": 19.0645,
+        "lng": -98.2882,
+        "linea_cercana": "L4",
+        "estacion_cercana": "l4-05"
+      }
+    ]
+  }
+}

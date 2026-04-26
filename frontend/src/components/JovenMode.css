@@ -191,13 +191,17 @@
   top: 20px;
   right: 350px;
   z-index: 100;
-  color: white;
-  background: rgb(0, 71, 171 , 0.8);
+  color: #2f587f;
+  background: linear-gradient(145deg, rgba(22, 86, 158, 0.72), rgba(52, 132, 189, 0.78));
   backdrop-filter: blur(8px);
-  border: 2px solid #992106;
+  border: 2px solid rgba(167, 197, 224, 0.55);
+  box-shadow:
+    0 0 0 0.08rem rgba(167, 197, 224, 0.42) inset,
+    0.35em -0.28em 0.65em rgba(20, 36, 54, 0.2);
   border-radius: 50%;
   width: 45px;
   height: 45px;
+  
   display: flex;
   align-items: center;
   justify-content: center;
@@ -207,8 +211,16 @@
 }
 
 .floating-config-btn:hover {
-  background: #992106;
+  background: linear-gradient(145deg, #d48b61, #bb5f3f 55%, #8f3a29);
+  border-color: rgba(255, 228, 214, 0.55);
+  color: #0f4c92;
   transform: scale(1.05);
+}
+
+.floating-config-btn.is-active {
+  background: linear-gradient(145deg, #d48b61, #bb5f3f 55%, #8f3a29);
+  border-color: rgba(255, 228, 214, 0.55);
+  color: #0f4c92;
 }
 
 /* Tarjeta de Status Ajustada */

@@ -15,9 +15,9 @@ export default function App() {
       <div className={`smartphone-container ${isSeniorMode ? 'theme-senior' : 'theme-joven'} mode-transition`}>
         
         {isSeniorMode ? (
-          <SeniorMode openConfig={() => setIsConfigOpen(true)} />
+          <SeniorMode openConfig={() => setIsConfigOpen(true)} isConfigActive={isConfigOpen} />
         ) : (
-          <JovenMode openConfig={() => setIsConfigOpen(true)} />
+          <JovenMode openConfig={() => setIsConfigOpen(true)} isConfigActive={isConfigOpen} />
         )}
 
         <ConfigModal 

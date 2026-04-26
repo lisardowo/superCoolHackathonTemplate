@@ -1,18 +1,45 @@
 import React, { useState } from 'react';
+import { AlertTriangle, CreditCard, QrCode, User, Flag } from 'lucide-react';
 import { IconConfig } from '../utils';
 import MapContainer from './MapContainer';
 import GlassIcons from './GlassIcons';
 import './JovenMode.css';
 
 const NAV_ITEMS = [
-  { label: 'Reportar', color: 'talavera', menuItems: ['Nuevo reporte', 'Mis reportes'] },
-  { label: 'Pagos', color: 'talavera', menuItems: ['Recargar saldo', 'Métodos de pago'] },
-  { label: 'Escanear', color: 'talavera', menuItems: [] },
-  { label: 'Cuenta', color: 'talavera', menuItems: ['Perfil', 'Preferencias'] },
-  { label: 'Explorar', color: 'talavera', menuItems: ['Rutas sugeridas', 'Puntos seguros'] }
+  {
+    label: 'Reportar',
+    color: 'talavera',
+    icon: <AlertTriangle size={20} strokeWidth={2.4} />,
+    menuItems: ['Nuevo reporte', 'Mis reportes']
+  },
+  {
+    label: 'Mis tarjetas',
+    color: 'talavera',
+    icon: <CreditCard size={20} strokeWidth={2.2} />,
+    menuItems: ['Tarjeta RUTA', 'Metodos de pago']
+  },
+  {
+    label: 'Escanear',
+    color: 'talavera',
+    icon: <QrCode size={22} strokeWidth={2.2} />,
+    customClass: 'is-scan',
+    menuItems: []
+  },
+  {
+    label: 'Cuenta',
+    color: 'talavera',
+    icon: <User size={20} strokeWidth={2.2} />,
+    menuItems: ['Perfil', 'Preferencias']
+  },
+  {
+    label: 'Misiones',
+    color: 'talavera',
+    icon: <Flag size={20} strokeWidth={2.2} />,
+    menuItems: ['Misiones activas', 'Recompensas']
+  }
 ];
 
-export default function JovenMode({ openConfig }) {
+export default function JovenMode({ openConfig, isConfigActive = false }) {
   const [activeNavIndex, setActiveNavIndex] = useState(2);
   const [isActive, setIsActive] = useState(false);
   const [isSectionMenuOpen, setIsSectionMenuOpen] = useState(false);
@@ -41,7 +68,7 @@ export default function JovenMode({ openConfig }) {
   return (
     <div className="joven-container">
       {/* Botón de Configuración Flotante */}
-      <button className="floating-config-btn" onClick={openConfig}>
+      <button className={`floating-config-btn ${isConfigActive ? 'is-active' : ''}`} onClick={openConfig}>
         <IconConfig />
       </button>
 

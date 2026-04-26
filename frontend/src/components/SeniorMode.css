@@ -20,7 +20,17 @@
 }
 
 .s-menu-btn {
-  color: white;
+  color: #a52a2a;
+  transition: color 0.25s ease;
+}
+
+.s-menu-btn:hover,
+.s-menu-btn:focus-visible {
+  color: #0047ab;
+}
+
+.s-menu-btn.is-active {
+  color: #0047ab;
 }
 
 .s-map-area {

@@ -22,6 +22,11 @@
   pointer-events: auto;
 }
 
+.icon-btn.is-scan {
+  z-index: 2;
+  transform: translateY(-0.35rem);
+}
+
 .icon-btn__back,
 .icon-btn__front,
 .icon-btn__label {
@@ -41,16 +46,22 @@
   transform: translateX(-50%);
 }
 
+.icon-btn.is-scan .icon-btn__back,
+.icon-btn.is-scan .icon-btn__front {
+  width: 3.9rem;
+  height: 3.9rem;
+}
+
 .icon-btn__back {
-  background: linear-gradient(145deg, rgba(17, 70, 155, 0.8), rgba(21, 79, 160, 0.84));
-  box-shadow: 0.45em -0.38em 0.8em rgba(26, 37, 51, 0.25);
+  background: linear-gradient(145deg, rgba(22, 86, 158, 0.72), rgba(52, 132, 189, 0.78));
+  box-shadow: 0.45em -0.38em 0.8em rgba(20, 36, 54, 0.2);
   opacity: 0.95;
 }
 
 .icon-btn__front {
   overflow: hidden;
-  background-color: rgba(0, 21, 255, 0.12);
-  box-shadow: 0 0 0 0.08rem rgba(53, 45, 220, 0.36) inset;
+  background-color: rgba(251, 251, 251, 0.2);
+  box-shadow: 0 0 0 0.08rem rgba(167, 197, 224, 0.42) inset;
   backdrop-filter: blur(0.75em);
   -webkit-backdrop-filter: blur(0.75em);
   display: flex;
@@ -65,7 +76,7 @@
   left: 50%;
   top: 50%;
   border-radius: 50%;
-  background: radial-gradient(circle, #993333 0%, #a22626 55%, #950f0f 100%);
+  background: radial-gradient(circle, #d48b61 0%, #bb5f3f 55%, #8f3a29 100%);
   transform: translate(-50%, -50%) scale(0);
   transform-origin: center;
   transition: transform 0.42s cubic-bezier(0.25, 0.9, 0.2, 1);
@@ -84,7 +95,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #a52a2a;
+  color: #2f587f;
   font-weight: 800;
   letter-spacing: 0.02em;
 }
@@ -107,9 +118,13 @@
   top: 3.65rem;
   right: 0;
   left: 0;
-  color: #a52a2a;
+  color: #2f587f;
   transform: translateY(0);
   font-weight: 700;
+}
+
+.icon-btn.is-scan .icon-btn__label {
+  top: 4.15rem;
 }
 
 .icon-btn:hover .icon-btn__back,
@@ -129,7 +144,11 @@
 
 .icon-btn.is-active .icon-btn__front {
   transform: translateX(-50%) translate3d(0, 0, 1.3em);
-  background-color: rgba(143, 25, 25, 0.2);
+  background-color: rgba(255, 228, 214, 0.26);
+}
+
+.icon-btn.is-scan.is-active .icon-btn__front {
+  transform: translateX(-50%) translate3d(0, 0, 1.45em);
 }
 
 .icon-btn.is-active .icon-btn__front::before {
@@ -138,7 +157,7 @@
 
 .icon-btn.is-active .icon-btn__icon,
 .icon-btn.is-active .icon-btn__label {
-  color: #0047ab;
+  color: #0f4c92;
 }
 
 @media (max-width: 390px) {
