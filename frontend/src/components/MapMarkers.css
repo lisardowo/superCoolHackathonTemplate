@@ -1,0 +1,54 @@
+.custom-marker {
+  width: 38px;
+  height: 38px;
+  border-radius: 50% 50% 50% 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  box-shadow: -2px 2px 5px rgba(0,0,0,0.3);
+  transition: transform 0.2s;
+}
+
+.custom-marker:hover {
+  transform: rotate(-45deg) scale(1.1);
+}
+
+.marker-inner {
+  transform: rotate(45deg); /* Compensa la rotación del padre */
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Variante Talavera (General / Hubs) */
+.marker-talavera {
+  background: #ffffff;
+  border: 3px solid #0047AB;
+}
+.marker-talavera .marker-inner { color: #0047AB; font-weight: bold; }
+
+/* Variante Bache */
+.marker-bache {
+  background: #fdfdfd;
+  border: 3px solid #E63946;
+}
+.marker-bache .marker-inner { color: #E63946; }
+
+/* Variante Pila (Carga/Swap) */
+.marker-pila {
+  background: #ffffff;
+  border: 3px solid #2A9D8F;
+}
+.marker-pila .marker-inner { color: #2A9D8F; }
+
+/* Para uso estático en UI */
+.marker-static {
+  transform: rotate(0);
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+.marker-static .marker-inner { transform: rotate(0); font-size: 12px; }

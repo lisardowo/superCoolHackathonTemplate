@@ -6,18 +6,18 @@ const getLabelFallback = (label) => {
   return label.slice(0, 1).toUpperCase();
 };
 
-export default function GlassIcons({ items = [], className = '', activeIndex = -1, onItemClick }) {
+export default function GlassIcons({ items = [], className = '', activeIndex = -1, isActive = false, onItemClick }) {
   return (
-    <div className={`icon-btns ${className || ''}`}>
+    <div className={`icon-btns j-glass-nav ${className || ''}`}>
       {items.map((item, index) => {
-        const isActive = index === activeIndex;
+        const isCurrentTabActive = isActive && index === activeIndex;
         const initial = getLabelFallback(item.label);
 
         return (
           <button
             key={`${item.label}-${index}`}
             type="button"
-            className={`icon-btn ${item.customClass || ''} ${isActive ? 'is-active' : ''}`}
+            className={`icon-btn ${item.customClass || ''} ${isCurrentTabActive ? 'is-active' : ''}`}
             aria-label={item.label}
             onClick={() => onItemClick?.(index)}
           >

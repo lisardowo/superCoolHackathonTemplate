@@ -1,24 +1,50 @@
-from fastapi import APIRouter, Query
-from utils import get_all_hubs # Importamos la utilidad
+import json
+import os
 
-router = APIRouter(prefix="/api/map", tags=["Map"])
+def get_all_hubs():
+    """
+    Lee el archivo puebla_data.Json y transforma estaciones y puntos 
+    de interés en un formato unificado para el mapa.
+    """
+    # Construcción de la ruta dinámica al archivo JSON
+    path = os.path.join(os.path.dirname(__file__), "puebla_data.Json")
+    
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        return []
 
-@router.get("/nearby")
-def get_nearby(
-    lat: float = Query(..., description="Latitud actual del usuario"),
-    lng: float = Query(..., description="Longitud actual del usuario"),
-    radius: float = 0.02 # Radio aproximado en grados para el MVP
-):
-    all_hubs = get_all_hubs()
-    
-    # Filtro dinámico: Solo hubs cerca de la ubicación del Front-end
-    nearby_hubs = [
-        h for h in all_hubs 
-        if abs(h["lat"] - lat) < radius and abs(h["lng"] - lng) < radius
-    ]
-    
-    return {
-        "userLocation": {"lat": lat, "lng": lng},
-        "hubs": nearby_hubs,
-        "totalFound": len(nearby_hubs)
-    }
+    hubs = []
+
+    # 1. Procesar estaciones de transporte (Líneas 1, 2, 3 y 4)
+    for linea in data["transporte"]["lineas"]:
+        line_name = linea["nombre"]
+        line_color = linea["color"]
+        
+        for estacion in linea["estaciones"]:
+            hubs.append({
+                "id": estacion["id"],
+                "name": f"{line_name}: {estacion['nombre']}",
+                "lat": estacion["lat"],
+                "lng": estacion["lng"],
+                "type": "RUTA_STATION",
+                "color": line_color,
+                "category": "Transporte"
+            })
+
+    # 2. Procesar puntos de interés (Universidades y Plazas)
+    for categoria, items in data["puntos_interes"].items():
+        for item in items:
+            hubs.append({
+                "id": item["id"],
+                "name": item["nombre"],
+                "lat": item["lat"],
+                "lng": item["lng"],
+                "type": categoria.upper().rstrip('S'), # Ejemplo: UNIVERSIDADE -> UNIVERSIDAD
+                "category": categoria.capitalize(),
+                "linea_cercana": item.get("linea_cercana"),
+                "estacion_cercana": item.get("estacion_cercana")
+            })
+
+    return hubs

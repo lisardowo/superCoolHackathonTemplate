@@ -2,6 +2,9 @@ import React, { useEffect, useRef, useState } from 'react';
 import mapboxgl from 'mapbox-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 import { apiService } from '../services/api';
+// MapContainer.jsx
+import { createCustomMarker } from './mapMarkers.jsx';
+
 
 // Constantes globales
 const PUEBLA_COORDS = [-98.2062, 19.0413]; // [lng, lat]
@@ -29,30 +32,7 @@ const MapContainer = ({ isSeniorMode, onMapClick, userLocation }) => {
     fetchHubs();
   }, [userLocation]);
 
-  // 2. Helpers Visuales (Talavera)
-const createTalaveraMarker = (type, color = '#0047AB') => {
-  const el = document.createElement('div');
-  // 🌟 IMPORTANTE: Forzar dimensiones y z-index
-  el.style.width = '32px';
-  el.style.height = '32px';
-  el.style.borderRadius = '50%';
-  el.style.backgroundColor = '#FFFFFF';
-  el.style.border = `4px dashed ${color}`;
-  el.style.boxShadow = '0 4px 10px rgba(0,0,0,0.4)';
-  el.style.cursor = 'pointer';
-  el.style.zIndex = '10'; // Asegurar que esté sobre el mapa
-  
-  // Agregar un punto central para que sea visible si falla el borde
-  const dot = document.createElement('div');
-  dot.style.width = '8px';
-  dot.style.height = '8px';
-  dot.style.margin = '8px auto';
-  dot.style.borderRadius = '50%';
-  dot.style.backgroundColor = color;
-  el.appendChild(dot);
-  
-  return el;
-};
+ 
 
   // 3. Inicialización del Mapa
   useEffect(() => {
@@ -105,14 +85,16 @@ useEffect(() => {
   markersRef.current = [];
 
   dynamicHubs.forEach((hub) => {
-    // 1. Crear el elemento visual (Asegura dimensiones)
-    const color = hub.type === 'RUTA_STATION' ? '#E63946' : '#0047AB';
-    const el = createTalaveraMarker(hub.type, color);
+   // 1. Mapeo de tipos para el nuevo componente
+    let markerType = 'talavera';
+    if (hub.type === 'POTHOLE' || hub.type === 'RUTA_STATION') markerType = 'bache';
+    if (hub.type === 'STATION' || hub.type === 'CHARGER') markerType = 'pila';
 
+    const el = createCustomMarker(markerType);
     // 2. Crear e instanciar el marcador
     const marker = new mapboxgl.Marker({ 
       element: el,
-      anchor: 'center' 
+      anchor: 'bottom' 
     })
       .setLngLat([hub.lng, hub.lat]) // Longitud primero (-98.x), luego Latitud (19.x)
       .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML(`

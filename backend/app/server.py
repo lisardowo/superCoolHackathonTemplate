@@ -10,6 +10,7 @@ from user import router as user_router
 from safety import router as safety_router
 from reports import router as reports_router
 from payments import router as payments_router
+from map import router as map_router
 
 app = FastAPI(title="Yankuilotl+ API")
 
@@ -32,6 +33,7 @@ app.include_router(user_router)
 app.include_router(safety_router)
 app.include_router(reports_router)
 app.include_router(payments_router)
+app.include_router(map_router)
 
 if __name__ == "__main__":
     # Importante: uvicorn busca el objeto "app" dentro del archivo "server"
