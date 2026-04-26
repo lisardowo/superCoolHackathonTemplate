@@ -38,7 +38,7 @@ export default function JovenMode({ openConfig }) {
   const [reportedPothole, setReportedPothole] = useState(null);
   const [activeNavIndex, setActiveNavIndex] = useState(2);
   const [isSectionMenuOpen, setIsSectionMenuOpen] = useState(false);
-
+const [userLocation, setUserLocation] = useState({ lat: 19.0413, lng: -98.2062 });
   const handleNavClick = (index) => {
     setActiveNavIndex(index);
     setIsSectionMenuOpen(true);
@@ -67,7 +67,7 @@ export default function JovenMode({ openConfig }) {
       {/* Area del Mapa */}
       <main className="j-map-area">
         {/* Renderizamos Mapbox debajo del HUD */}
-        <MapContainer isSeniorMode={false} onMapClick={handleMapClick} />
+        <MapContainer isSeniorMode={false} onMapClick={handleMapClick} userLocation={userLocation}/>
 
         <nav className="j-tab-bar" aria-label="Navegación principal">
           <GlassIcons
