@@ -1,0 +1,1377 @@
+{
+  "generated_at": "2025-04-26T00:00:00Z",
+  "city": "Puebla, México",
+  "total": 137,
+  "hubs": [
+    {
+      "id": "hub-buap",
+      "name": "BUAP Ciudad Universitaria",
+      "lat": 19.0016,
+      "lng": -98.2023
+    },
+    {
+      "id": "hub-upaep",
+      "name": "UPAEP",
+      "lat": 19.0469,
+      "lng": -98.214
+    },
+    {
+      "id": "hub-ibero",
+      "name": "Ibero Puebla",
+      "lat": 19.0232,
+      "lng": -98.2415
+    },
+    {
+      "id": "hub-tec",
+      "name": "Tec de Monterrey Puebla",
+      "lat": 19.0195,
+      "lng": -98.2423
+    },
+    {
+      "id": "hub-uvm",
+      "name": "UVM Campus Puebla",
+      "lat": 19.0435,
+      "lng": -98.2748
+    },
+    {
+      "id": "hub-udlap",
+      "name": "UDLAP",
+      "lat": 19.0559,
+      "lng": -98.2831
+    },
+    {
+      "id": "hub-anahuac",
+      "name": "Anáhuac Puebla",
+      "lat": 19.0664,
+      "lng": -98.2715
+    },
+    {
+      "id": "hub-uvp",
+      "name": "UVP",
+      "lat": 19.0238,
+      "lng": -98.2045
+    },
+    {
+      "id": "hub-solesta",
+      "name": "Plaza Solesta",
+      "lat": 19.0361,
+      "lng": -98.2328
+    },
+    {
+      "id": "hub-angelopolis",
+      "name": "Centro Comercial Angelópolis",
+      "lat": 19.0305,
+      "lng": -98.2325
+    },
+    {
+      "id": "hub-explanada",
+      "name": "Explanada Puebla",
+      "lat": 19.0645,
+      "lng": -98.2882
+    },
+    {
+      "id": "hub-zocalo",
+      "name": "Estación Zócalo RUTA",
+      "lat": 19.0435,
+      "lng": -98.1978
+    },
+    {
+      "id": "hub-tlaxcalancingo",
+      "name": "Terminal Tlaxcalancingo",
+      "lat": 19.0229,
+      "lng": -98.2744
+    },
+    {
+      "id": "hub-chachapa",
+      "name": "Terminal Chachapa",
+      "lat": 19.0564,
+      "lng": -98.1555
+    },
+    {
+      "id": "hub-finsa",
+      "name": "Terminal FINSA",
+      "lat": 19.1172,
+      "lng": -98.2589
+    },
+    {
+      "id": "hub-margaritas",
+      "name": "Terminal Margaritas",
+      "lat": 18.9897,
+      "lng": -98.2485
+    }
+  ],
+  "vehicles": [
+    {
+      "id": "SC0001",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 66,
+      "lat": 19.001679,
+      "lng": -98.202114,
+      "hub_id": "hub-buap",
+      "hub_name": "BUAP Ciudad Universitaria"
+    },
+    {
+      "id": "SC0002",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 65,
+      "lat": 19.001641,
+      "lng": -98.202522,
+      "hub_id": "hub-buap",
+      "hub_name": "BUAP Ciudad Universitaria"
+    },
+    {
+      "id": "SC0003",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 65,
+      "lat": 19.001474,
+      "lng": -98.202297,
+      "hub_id": "hub-buap",
+      "hub_name": "BUAP Ciudad Universitaria"
+    },
+    {
+      "id": "BI0004",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 86,
+      "lat": 19.046774,
+      "lng": -98.213958,
+      "hub_id": "hub-upaep",
+      "hub_name": "UPAEP"
+    },
+    {
+      "id": "BI0005",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 60,
+      "lat": 19.047016,
+      "lng": -98.214162,
+      "hub_id": "hub-upaep",
+      "hub_name": "UPAEP"
+    },
+    {
+      "id": "BI0006",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 87,
+      "lat": 19.046828,
+      "lng": -98.214164,
+      "hub_id": "hub-upaep",
+      "hub_name": "UPAEP"
+    },
+    {
+      "id": "SC0007",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 62,
+      "lat": 19.023303,
+      "lng": -98.241483,
+      "hub_id": "hub-ibero",
+      "hub_name": "Ibero Puebla"
+    },
+    {
+      "id": "SC0008",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 84,
+      "lat": 19.023011,
+      "lng": -98.241598,
+      "hub_id": "hub-ibero",
+      "hub_name": "Ibero Puebla"
+    },
+    {
+      "id": "SC0009",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 100,
+      "lat": 19.023253,
+      "lng": -98.241328,
+      "hub_id": "hub-ibero",
+      "hub_name": "Ibero Puebla"
+    },
+    {
+      "id": "SC0010",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 96,
+      "lat": 19.023062,
+      "lng": -98.241705,
+      "hub_id": "hub-ibero",
+      "hub_name": "Ibero Puebla"
+    },
+    {
+      "id": "SC0011",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 74,
+      "lat": 19.023323,
+      "lng": -98.241269,
+      "hub_id": "hub-ibero",
+      "hub_name": "Ibero Puebla"
+    },
+    {
+      "id": "BI0012",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 70,
+      "lat": 19.019442,
+      "lng": -98.242438,
+      "hub_id": "hub-tec",
+      "hub_name": "Tec de Monterrey Puebla"
+    },
+    {
+      "id": "SC0013",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 77,
+      "lat": 19.019591,
+      "lng": -98.242213,
+      "hub_id": "hub-tec",
+      "hub_name": "Tec de Monterrey Puebla"
+    },
+    {
+      "id": "SC0014",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 64,
+      "lat": 19.019549,
+      "lng": -98.242456,
+      "hub_id": "hub-tec",
+      "hub_name": "Tec de Monterrey Puebla"
+    },
+    {
+      "id": "BI0015",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 75,
+      "lat": 19.019349,
+      "lng": -98.242357,
+      "hub_id": "hub-tec",
+      "hub_name": "Tec de Monterrey Puebla"
+    },
+    {
+      "id": "SC0016",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 64,
+      "lat": 19.04337,
+      "lng": -98.27459,
+      "hub_id": "hub-uvm",
+      "hub_name": "UVM Campus Puebla"
+    },
+    {
+      "id": "SC0017",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 80,
+      "lat": 19.043371,
+      "lng": -98.2748,
+      "hub_id": "hub-uvm",
+      "hub_name": "UVM Campus Puebla"
+    },
+    {
+      "id": "BI0018",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 89,
+      "lat": 19.04334,
+      "lng": -98.274971,
+      "hub_id": "hub-uvm",
+      "hub_name": "UVM Campus Puebla"
+    },
+    {
+      "id": "SC0019",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 95,
+      "lat": 19.043518,
+      "lng": -98.274683,
+      "hub_id": "hub-uvm",
+      "hub_name": "UVM Campus Puebla"
+    },
+    {
+      "id": "BI0020",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 87,
+      "lat": 19.043679,
+      "lng": -98.274848,
+      "hub_id": "hub-uvm",
+      "hub_name": "UVM Campus Puebla"
+    },
+    {
+      "id": "BI0021",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 74,
+      "lat": 19.043723,
+      "lng": -98.274972,
+      "hub_id": "hub-uvm",
+      "hub_name": "UVM Campus Puebla"
+    },
+    {
+      "id": "SC0022",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 91,
+      "lat": 19.043316,
+      "lng": -98.275015,
+      "hub_id": "hub-uvm",
+      "hub_name": "UVM Campus Puebla"
+    },
+    {
+      "id": "SC0023",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 98,
+      "lat": 19.055704,
+      "lng": -98.283156,
+      "hub_id": "hub-udlap",
+      "hub_name": "UDLAP"
+    },
+    {
+      "id": "SC0024",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 89,
+      "lat": 19.055913,
+      "lng": -98.282876,
+      "hub_id": "hub-udlap",
+      "hub_name": "UDLAP"
+    },
+    {
+      "id": "BI0025",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 60,
+      "lat": 19.055981,
+      "lng": -98.283283,
+      "hub_id": "hub-udlap",
+      "hub_name": "UDLAP"
+    },
+    {
+      "id": "BI0026",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 76,
+      "lat": 19.066612,
+      "lng": -98.271376,
+      "hub_id": "hub-anahuac",
+      "hub_name": "Anáhuac Puebla"
+    },
+    {
+      "id": "BI0027",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 92,
+      "lat": 19.066585,
+      "lng": -98.271324,
+      "hub_id": "hub-anahuac",
+      "hub_name": "Anáhuac Puebla"
+    },
+    {
+      "id": "SC0028",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 79,
+      "lat": 19.066553,
+      "lng": -98.271496,
+      "hub_id": "hub-anahuac",
+      "hub_name": "Anáhuac Puebla"
+    },
+    {
+      "id": "SC0029",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 72,
+      "lat": 19.066244,
+      "lng": -98.271375,
+      "hub_id": "hub-anahuac",
+      "hub_name": "Anáhuac Puebla"
+    },
+    {
+      "id": "SC0030",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 94,
+      "lat": 19.066604,
+      "lng": -98.271299,
+      "hub_id": "hub-anahuac",
+      "hub_name": "Anáhuac Puebla"
+    },
+    {
+      "id": "SC0031",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 60,
+      "lat": 19.066444,
+      "lng": -98.271505,
+      "hub_id": "hub-anahuac",
+      "hub_name": "Anáhuac Puebla"
+    },
+    {
+      "id": "BI0032",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 67,
+      "lat": 19.066593,
+      "lng": -98.27132,
+      "hub_id": "hub-anahuac",
+      "hub_name": "Anáhuac Puebla"
+    },
+    {
+      "id": "SC0033",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 64,
+      "lat": 19.024015,
+      "lng": -98.204484,
+      "hub_id": "hub-uvp",
+      "hub_name": "UVP"
+    },
+    {
+      "id": "SC0034",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 68,
+      "lat": 19.023633,
+      "lng": -98.204512,
+      "hub_id": "hub-uvp",
+      "hub_name": "UVP"
+    },
+    {
+      "id": "BI0035",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 95,
+      "lat": 19.02365,
+      "lng": -98.204487,
+      "hub_id": "hub-uvp",
+      "hub_name": "UVP"
+    },
+    {
+      "id": "SC0036",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 98,
+      "lat": 19.023765,
+      "lng": -98.204637,
+      "hub_id": "hub-uvp",
+      "hub_name": "UVP"
+    },
+    {
+      "id": "BI0037",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 94,
+      "lat": 19.023915,
+      "lng": -98.20441,
+      "hub_id": "hub-uvp",
+      "hub_name": "UVP"
+    },
+    {
+      "id": "SC0038",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 75,
+      "lat": 19.035976,
+      "lng": -98.232877,
+      "hub_id": "hub-solesta",
+      "hub_name": "Plaza Solesta"
+    },
+    {
+      "id": "BI0039",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 97,
+      "lat": 19.036124,
+      "lng": -98.232758,
+      "hub_id": "hub-solesta",
+      "hub_name": "Plaza Solesta"
+    },
+    {
+      "id": "SC0040",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 60,
+      "lat": 19.035907,
+      "lng": -98.232738,
+      "hub_id": "hub-solesta",
+      "hub_name": "Plaza Solesta"
+    },
+    {
+      "id": "BI0041",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 74,
+      "lat": 19.035906,
+      "lng": -98.233023,
+      "hub_id": "hub-solesta",
+      "hub_name": "Plaza Solesta"
+    },
+    {
+      "id": "SC0042",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 81,
+      "lat": 19.035907,
+      "lng": -98.232924,
+      "hub_id": "hub-solesta",
+      "hub_name": "Plaza Solesta"
+    },
+    {
+      "id": "SC0043",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 86,
+      "lat": 19.030361,
+      "lng": -98.232692,
+      "hub_id": "hub-angelopolis",
+      "hub_name": "Centro Comercial Angelópolis"
+    },
+    {
+      "id": "SC0044",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 87,
+      "lat": 19.030435,
+      "lng": -98.232542,
+      "hub_id": "hub-angelopolis",
+      "hub_name": "Centro Comercial Angelópolis"
+    },
+    {
+      "id": "BI0045",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 63,
+      "lat": 19.030578,
+      "lng": -98.23227,
+      "hub_id": "hub-angelopolis",
+      "hub_name": "Centro Comercial Angelópolis"
+    },
+    {
+      "id": "BI0046",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 66,
+      "lat": 19.030303,
+      "lng": -98.232392,
+      "hub_id": "hub-angelopolis",
+      "hub_name": "Centro Comercial Angelópolis"
+    },
+    {
+      "id": "SC0047",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 66,
+      "lat": 19.030387,
+      "lng": -98.232647,
+      "hub_id": "hub-angelopolis",
+      "hub_name": "Centro Comercial Angelópolis"
+    },
+    {
+      "id": "BI0048",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 88,
+      "lat": 19.030338,
+      "lng": -98.23265,
+      "hub_id": "hub-angelopolis",
+      "hub_name": "Centro Comercial Angelópolis"
+    },
+    {
+      "id": "SC0049",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 94,
+      "lat": 19.064651,
+      "lng": -98.287977,
+      "hub_id": "hub-explanada",
+      "hub_name": "Explanada Puebla"
+    },
+    {
+      "id": "BI0050",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 75,
+      "lat": 19.06435,
+      "lng": -98.288207,
+      "hub_id": "hub-explanada",
+      "hub_name": "Explanada Puebla"
+    },
+    {
+      "id": "SC0051",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 73,
+      "lat": 19.064664,
+      "lng": -98.288009,
+      "hub_id": "hub-explanada",
+      "hub_name": "Explanada Puebla"
+    },
+    {
+      "id": "BI0052",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 70,
+      "lat": 19.064446,
+      "lng": -98.287969,
+      "hub_id": "hub-explanada",
+      "hub_name": "Explanada Puebla"
+    },
+    {
+      "id": "BI0053",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 76,
+      "lat": 19.064692,
+      "lng": -98.288065,
+      "hub_id": "hub-explanada",
+      "hub_name": "Explanada Puebla"
+    },
+    {
+      "id": "SC0054",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 78,
+      "lat": 19.064465,
+      "lng": -98.287983,
+      "hub_id": "hub-explanada",
+      "hub_name": "Explanada Puebla"
+    },
+    {
+      "id": "BI0055",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 80,
+      "lat": 19.043301,
+      "lng": -98.19776,
+      "hub_id": "hub-zocalo",
+      "hub_name": "Estación Zócalo RUTA"
+    },
+    {
+      "id": "SC0056",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 92,
+      "lat": 19.043688,
+      "lng": -98.197785,
+      "hub_id": "hub-zocalo",
+      "hub_name": "Estación Zócalo RUTA"
+    },
+    {
+      "id": "SC0057",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 63,
+      "lat": 19.043707,
+      "lng": -98.198,
+      "hub_id": "hub-zocalo",
+      "hub_name": "Estación Zócalo RUTA"
+    },
+    {
+      "id": "SC0058",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 71,
+      "lat": 19.043306,
+      "lng": -98.198005,
+      "hub_id": "hub-zocalo",
+      "hub_name": "Estación Zócalo RUTA"
+    },
+    {
+      "id": "SC0059",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 75,
+      "lat": 19.043457,
+      "lng": -98.19759,
+      "hub_id": "hub-zocalo",
+      "hub_name": "Estación Zócalo RUTA"
+    },
+    {
+      "id": "BI0060",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 96,
+      "lat": 19.043386,
+      "lng": -98.197755,
+      "hub_id": "hub-zocalo",
+      "hub_name": "Estación Zócalo RUTA"
+    },
+    {
+      "id": "SC0061",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 99,
+      "lat": 19.043312,
+      "lng": -98.197725,
+      "hub_id": "hub-zocalo",
+      "hub_name": "Estación Zócalo RUTA"
+    },
+    {
+      "id": "BI0062",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 79,
+      "lat": 19.022881,
+      "lng": -98.274196,
+      "hub_id": "hub-tlaxcalancingo",
+      "hub_name": "Terminal Tlaxcalancingo"
+    },
+    {
+      "id": "BI0063",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 64,
+      "lat": 19.02268,
+      "lng": -98.274342,
+      "hub_id": "hub-tlaxcalancingo",
+      "hub_name": "Terminal Tlaxcalancingo"
+    },
+    {
+      "id": "SC0064",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 96,
+      "lat": 19.023123,
+      "lng": -98.274603,
+      "hub_id": "hub-tlaxcalancingo",
+      "hub_name": "Terminal Tlaxcalancingo"
+    },
+    {
+      "id": "BI0065",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 73,
+      "lat": 19.022903,
+      "lng": -98.274575,
+      "hub_id": "hub-tlaxcalancingo",
+      "hub_name": "Terminal Tlaxcalancingo"
+    },
+    {
+      "id": "SC0066",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 82,
+      "lat": 19.023071,
+      "lng": -98.27422,
+      "hub_id": "hub-tlaxcalancingo",
+      "hub_name": "Terminal Tlaxcalancingo"
+    },
+    {
+      "id": "SC0067",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 83,
+      "lat": 19.022803,
+      "lng": -98.274429,
+      "hub_id": "hub-tlaxcalancingo",
+      "hub_name": "Terminal Tlaxcalancingo"
+    },
+    {
+      "id": "BI0068",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 94,
+      "lat": 19.022991,
+      "lng": -98.274347,
+      "hub_id": "hub-tlaxcalancingo",
+      "hub_name": "Terminal Tlaxcalancingo"
+    },
+    {
+      "id": "SC0069",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 66,
+      "lat": 19.056509,
+      "lng": -98.155664,
+      "hub_id": "hub-chachapa",
+      "hub_name": "Terminal Chachapa"
+    },
+    {
+      "id": "BI0070",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 78,
+      "lat": 19.056447,
+      "lng": -98.155397,
+      "hub_id": "hub-chachapa",
+      "hub_name": "Terminal Chachapa"
+    },
+    {
+      "id": "SC0071",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 73,
+      "lat": 19.056484,
+      "lng": -98.155332,
+      "hub_id": "hub-chachapa",
+      "hub_name": "Terminal Chachapa"
+    },
+    {
+      "id": "BI0072",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 92,
+      "lat": 19.056395,
+      "lng": -98.155307,
+      "hub_id": "hub-chachapa",
+      "hub_name": "Terminal Chachapa"
+    },
+    {
+      "id": "BI0073",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 63,
+      "lat": 19.056217,
+      "lng": -98.155536,
+      "hub_id": "hub-chachapa",
+      "hub_name": "Terminal Chachapa"
+    },
+    {
+      "id": "SC0074",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 77,
+      "lat": 19.056195,
+      "lng": -98.155579,
+      "hub_id": "hub-chachapa",
+      "hub_name": "Terminal Chachapa"
+    },
+    {
+      "id": "SC0075",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 68,
+      "lat": 19.056462,
+      "lng": -98.155613,
+      "hub_id": "hub-chachapa",
+      "hub_name": "Terminal Chachapa"
+    },
+    {
+      "id": "BI0076",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 94,
+      "lat": 19.116992,
+      "lng": -98.258962,
+      "hub_id": "hub-finsa",
+      "hub_name": "Terminal FINSA"
+    },
+    {
+      "id": "SC0077",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 95,
+      "lat": 19.117042,
+      "lng": -98.259077,
+      "hub_id": "hub-finsa",
+      "hub_name": "Terminal FINSA"
+    },
+    {
+      "id": "SC0078",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 79,
+      "lat": 19.117139,
+      "lng": -98.258694,
+      "hub_id": "hub-finsa",
+      "hub_name": "Terminal FINSA"
+    },
+    {
+      "id": "SC0079",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 62,
+      "lat": 19.117379,
+      "lng": -98.259038,
+      "hub_id": "hub-finsa",
+      "hub_name": "Terminal FINSA"
+    },
+    {
+      "id": "BI0080",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 75,
+      "lat": 19.117275,
+      "lng": -98.25897,
+      "hub_id": "hub-finsa",
+      "hub_name": "Terminal FINSA"
+    },
+    {
+      "id": "BI0081",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 95,
+      "lat": 19.117373,
+      "lng": -98.258945,
+      "hub_id": "hub-finsa",
+      "hub_name": "Terminal FINSA"
+    },
+    {
+      "id": "BI0082",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 71,
+      "lat": 18.989806,
+      "lng": -98.24858,
+      "hub_id": "hub-margaritas",
+      "hub_name": "Terminal Margaritas"
+    },
+    {
+      "id": "BI0083",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 86,
+      "lat": 18.989836,
+      "lng": -98.248327,
+      "hub_id": "hub-margaritas",
+      "hub_name": "Terminal Margaritas"
+    },
+    {
+      "id": "SC0084",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 75,
+      "lat": 18.989595,
+      "lng": -98.248363,
+      "hub_id": "hub-margaritas",
+      "hub_name": "Terminal Margaritas"
+    },
+    {
+      "id": "SC0085",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 66,
+      "lat": 18.989647,
+      "lng": -98.248719,
+      "hub_id": "hub-margaritas",
+      "hub_name": "Terminal Margaritas"
+    },
+    {
+      "id": "BI0086",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 90,
+      "lat": 18.989575,
+      "lng": -98.24835,
+      "hub_id": "hub-margaritas",
+      "hub_name": "Terminal Margaritas"
+    },
+    {
+      "id": "SC0087",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 89,
+      "lat": 18.989632,
+      "lng": -98.248348,
+      "hub_id": "hub-margaritas",
+      "hub_name": "Terminal Margaritas"
+    },
+    {
+      "id": "SC0088",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 74,
+      "lat": 18.989576,
+      "lng": -98.248424,
+      "hub_id": "hub-margaritas",
+      "hub_name": "Terminal Margaritas"
+    },
+    {
+      "id": "SC0089",
+      "type": "scooter",
+      "status": "maintenance",
+      "battery_pct": 52,
+      "lat": 19.043254,
+      "lng": -98.19672
+    },
+    {
+      "id": "BI0090",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 50,
+      "lat": 19.04294,
+      "lng": -98.197648
+    },
+    {
+      "id": "BI0091",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 41,
+      "lat": 19.045449,
+      "lng": -98.197057
+    },
+    {
+      "id": "SC0092",
+      "type": "scooter",
+      "status": "low_battery",
+      "battery_pct": 63,
+      "lat": 19.043646,
+      "lng": -98.19926
+    },
+    {
+      "id": "SC0093",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 40,
+      "lat": 19.062531,
+      "lng": -98.304412
+    },
+    {
+      "id": "BI0094",
+      "type": "bici",
+      "status": "maintenance",
+      "battery_pct": 95,
+      "lat": 19.061777,
+      "lng": -98.305194
+    },
+    {
+      "id": "SC0095",
+      "type": "scooter",
+      "status": "in_use",
+      "battery_pct": 54,
+      "lat": 19.062561,
+      "lng": -98.305417
+    },
+    {
+      "id": "BI0096",
+      "type": "bici",
+      "status": "maintenance",
+      "battery_pct": 48,
+      "lat": 19.063949,
+      "lng": -98.307334
+    },
+    {
+      "id": "SC0097",
+      "type": "scooter",
+      "status": "in_use",
+      "battery_pct": 93,
+      "lat": 19.050027,
+      "lng": -98.207702
+    },
+    {
+      "id": "SC0098",
+      "type": "scooter",
+      "status": "in_use",
+      "battery_pct": 32,
+      "lat": 19.050888,
+      "lng": -98.207767
+    },
+    {
+      "id": "BI0099",
+      "type": "bici",
+      "status": "low_battery",
+      "battery_pct": 30,
+      "lat": 19.050963,
+      "lng": -98.208423
+    },
+    {
+      "id": "SC0100",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 46,
+      "lat": 19.043301,
+      "lng": -98.200866
+    },
+    {
+      "id": "BI0101",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 91,
+      "lat": 19.043714,
+      "lng": -98.200612
+    },
+    {
+      "id": "SC0102",
+      "type": "scooter",
+      "status": "in_use",
+      "battery_pct": 73,
+      "lat": 19.042986,
+      "lng": -98.201378
+    },
+    {
+      "id": "BI0103",
+      "type": "bici",
+      "status": "maintenance",
+      "battery_pct": 92,
+      "lat": 19.044184,
+      "lng": -98.202839
+    },
+    {
+      "id": "SC0104",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 94,
+      "lat": 19.043967,
+      "lng": -98.203131
+    },
+    {
+      "id": "SC0105",
+      "type": "scooter",
+      "status": "low_battery",
+      "battery_pct": 13,
+      "lat": 19.044145,
+      "lng": -98.202701
+    },
+    {
+      "id": "SC0106",
+      "type": "scooter",
+      "status": "maintenance",
+      "battery_pct": 61,
+      "lat": 19.02845,
+      "lng": -98.239378
+    },
+    {
+      "id": "SC0107",
+      "type": "scooter",
+      "status": "in_use",
+      "battery_pct": 71,
+      "lat": 19.028389,
+      "lng": -98.239187
+    },
+    {
+      "id": "SC0108",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 62,
+      "lat": 19.031462,
+      "lng": -98.239449
+    },
+    {
+      "id": "SC0109",
+      "type": "scooter",
+      "status": "low_battery",
+      "battery_pct": 14,
+      "lat": 19.027759,
+      "lng": -98.237775
+    },
+    {
+      "id": "SC0110",
+      "type": "scooter",
+      "status": "maintenance",
+      "battery_pct": 67,
+      "lat": 19.038382,
+      "lng": -98.22541
+    },
+    {
+      "id": "SC0111",
+      "type": "scooter",
+      "status": "maintenance",
+      "battery_pct": 86,
+      "lat": 19.037676,
+      "lng": -98.226555
+    },
+    {
+      "id": "BI0112",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 65,
+      "lat": 19.037398,
+      "lng": -98.22684
+    },
+    {
+      "id": "SC0113",
+      "type": "scooter",
+      "status": "maintenance",
+      "battery_pct": 39,
+      "lat": 19.036978,
+      "lng": -98.227091
+    },
+    {
+      "id": "BI0114",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 38,
+      "lat": 19.05706,
+      "lng": -98.279637
+    },
+    {
+      "id": "SC0115",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 42,
+      "lat": 19.056261,
+      "lng": -98.27869
+    },
+    {
+      "id": "SC0116",
+      "type": "scooter",
+      "status": "in_use",
+      "battery_pct": 37,
+      "lat": 19.056133,
+      "lng": -98.274112
+    },
+    {
+      "id": "SC0117",
+      "type": "scooter",
+      "status": "in_use",
+      "battery_pct": 61,
+      "lat": 19.055728,
+      "lng": -98.274782
+    },
+    {
+      "id": "SC0118",
+      "type": "scooter",
+      "status": "in_use",
+      "battery_pct": 61,
+      "lat": 19.056217,
+      "lng": -98.29364
+    },
+    {
+      "id": "BI0119",
+      "type": "bici",
+      "status": "low_battery",
+      "battery_pct": 10,
+      "lat": 19.057251,
+      "lng": -98.293897
+    },
+    {
+      "id": "SC0120",
+      "type": "scooter",
+      "status": "in_use",
+      "battery_pct": 57,
+      "lat": 19.056989,
+      "lng": -98.294844
+    },
+    {
+      "id": "BI0121",
+      "type": "bici",
+      "status": "in_use",
+      "battery_pct": 36,
+      "lat": 19.057208,
+      "lng": -98.295205
+    },
+    {
+      "id": "SC0122",
+      "type": "scooter",
+      "status": "maintenance",
+      "battery_pct": 51,
+      "lat": 19.047518,
+      "lng": -98.208904
+    },
+    {
+      "id": "SC0123",
+      "type": "scooter",
+      "status": "low_battery",
+      "battery_pct": 24,
+      "lat": 19.04844,
+      "lng": -98.211813
+    },
+    {
+      "id": "BI0124",
+      "type": "bici",
+      "status": "maintenance",
+      "battery_pct": 80,
+      "lat": 19.047237,
+      "lng": -98.211222
+    },
+    {
+      "id": "SC0125",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 67,
+      "lat": 19.048914,
+      "lng": -98.21087
+    },
+    {
+      "id": "SC0126",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 49,
+      "lat": 19.073974,
+      "lng": -98.237564
+    },
+    {
+      "id": "SC0127",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 40,
+      "lat": 19.072818,
+      "lng": -98.234928
+    },
+    {
+      "id": "SC0128",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 52,
+      "lat": 19.072184,
+      "lng": -98.235837
+    },
+    {
+      "id": "SC0129",
+      "type": "scooter",
+      "status": "low_battery",
+      "battery_pct": 11,
+      "lat": 19.108941,
+      "lng": -98.253542
+    },
+    {
+      "id": "SC0130",
+      "type": "scooter",
+      "status": "available",
+      "battery_pct": 38,
+      "lat": 19.108034,
+      "lng": -98.253889
+    },
+    {
+      "id": "SC0131",
+      "type": "scooter",
+      "status": "maintenance",
+      "battery_pct": 67,
+      "lat": 19.1078,
+      "lng": -98.253964
+    },
+    {
+      "id": "BI0132",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 22,
+      "lat": 19.105027,
+      "lng": -98.252269
+    },
+    {
+      "id": "SC0133",
+      "type": "scooter",
+      "status": "low_battery",
+      "battery_pct": 47,
+      "lat": 19.105192,
+      "lng": -98.252046
+    },
+    {
+      "id": "BI0134",
+      "type": "bici",
+      "status": "available",
+      "battery_pct": 33,
+      "lat": 18.997386,
+      "lng": -98.219266
+    },
+    {
+      "id": "SC0135",
+      "type": "scooter",
+      "status": "maintenance",
+      "battery_pct": 21,
+      "lat": 18.996238,
+      "lng": -98.219527
+    },
+    {
+      "id": "BI0136",
+      "type": "bici",
+      "status": "low_battery",
+      "battery_pct": 23,
+      "lat": 18.997131,
+      "lng": -98.219974
+    },
+    {
+      "id": "SC0137",
+      "type": "scooter",
+      "status": "low_battery",
+      "battery_pct": 16,
+      "lat": 19.000706,
+      "lng": -98.220555
+    }
+  ]
+}

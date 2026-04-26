@@ -7,48 +7,32 @@
   justify-content: center;
   transform: rotate(-45deg);
   cursor: pointer;
-  box-shadow: -2px 2px 5px rgba(0,0,0,0.3);
-  transition: transform 0.2s;
+  box-shadow: -2px 3px 8px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .custom-marker:hover {
-  transform: rotate(-45deg) scale(1.1);
+  transform: rotate(-45deg) scale(1.15);
+  box-shadow: -3px 4px 12px rgba(0, 0, 0, 0.35);
 }
 
 .marker-inner {
-  transform: rotate(45deg); /* Compensa la rotación del padre */
-  font-size: 16px;
+  transform: rotate(45deg); /* cancela la rotación del pin */
   display: flex;
   align-items: center;
   justify-content: center;
+  line-height: 0;
 }
 
-/* Variante Talavera (General / Hubs) */
-.marker-talavera {
-  background: #ffffff;
-  border: 3px solid #0047AB;
-}
-.marker-talavera .marker-inner { color: #0047AB; font-weight: bold; }
-
-/* Variante Bache */
-.marker-bache {
-  background: #fdfdfd;
-  border: 3px solid #E63946;
-}
-.marker-bache .marker-inner { color: #E63946; }
-
-/* Variante Pila (Carga/Swap) */
-.marker-pila {
-  background: #ffffff;
-  border: 3px solid #2A9D8F;
-}
-.marker-pila .marker-inner { color: #2A9D8F; }
-
-/* Para uso estático en UI */
+/* Marcador estático para usar en leyendas / UI (sin rotación) */
 .marker-static {
-  transform: rotate(0);
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
+  transform: rotate(0) !important;
+  width: 28px;
+  height: 28px;
+  border-radius: 50% !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
 }
-.marker-static .marker-inner { transform: rotate(0); font-size: 12px; }
+
+.marker-static .marker-inner {
+  transform: rotate(0) !important;
+}
