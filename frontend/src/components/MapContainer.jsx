@@ -20,6 +20,11 @@ const MOCK_DATA = {
   ]
 };
 
+const USER_NEAR_HUB_COORDS = [
+  MOCK_DATA.hubs[0].coords[0] + 0.0012,
+  MOCK_DATA.hubs[0].coords[1] - 0.0009,
+];
+
 export default function MapContainer({ isSeniorMode, onMapClick }) {
   const mapContainerRef = useRef(null);
   const mapRef = useRef(null);
@@ -38,15 +43,28 @@ export default function MapContainer({ isSeniorMode, onMapClick }) {
     return el;
   };
 
-  // Helper para crear el marcador del usuario Senior
-  const createSeniorUserMarker = () => {
+  // Helper para crear el marcador del usuario
+  const createUserMarker = (isSenior = false) => {
     const el = document.createElement('div');
-    el.style.width = '40px';
-    el.style.height = '40px';
+    el.style.width = isSenior ? '40px' : '34px';
+    el.style.height = isSenior ? '40px' : '34px';
     el.style.borderRadius = '50%';
     el.style.backgroundColor = '#0047AB';
     el.style.border = '4px solid #FFFFFF';
-    el.style.boxShadow = '0 0 15px rgba(0, 71, 171, 0.8)';
+    el.style.boxShadow = isSenior
+      ? '0 0 15px rgba(0, 71, 171, 0.8)'
+      : '0 0 10px rgba(0, 71, 171, 0.65)';
+    el.style.display = 'flex';
+    el.style.justifyContent = 'center';
+    el.style.alignItems = 'center';
+
+    const center = document.createElement('span');
+    center.style.width = isSenior ? '12px' : '10px';
+    center.style.height = isSenior ? '12px' : '10px';
+    center.style.borderRadius = '50%';
+    center.style.backgroundColor = '#00BFFF';
+    el.appendChild(center);
+
     return el;
   };
 
@@ -102,12 +120,13 @@ export default function MapContainer({ isSeniorMode, onMapClick }) {
           }
         }
 
-        // Marcador del usuario (Simulado en Puebla centro)
-        new mapboxgl.Marker({ element: createSeniorUserMarker() })
-          .setLngLat(PUEBLA_COORDS)
-          .addTo(map);
-
       }
+
+      // Marcador del usuario cerca del hub principal
+      new mapboxgl.Marker({ element: createUserMarker(isSeniorMode) })
+        .setLngLat(USER_NEAR_HUB_COORDS)
+        .setPopup(new mapboxgl.Popup({ offset: 25 }).setHTML('<strong>Tu ubicación</strong>'))
+        .addTo(map);
 
       // Añadir Hubs (En ambos modos, son vitales)
       MOCK_DATA.hubs.forEach((hub) => {
