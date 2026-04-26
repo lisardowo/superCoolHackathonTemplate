@@ -1,10 +1,17 @@
-
 import uvicorn
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
-app = FastAPI()
+# Importamos los routers de tus archivos locales (sin el prefijo 'app.')
+# Asegúrate de que cada archivo tenga: router = APIRouter(...)
+from hubs import router as hubs_router
+from trip import router as trip_router
+from user import router as user_router
+from safety import router as safety_router
+from reports import router as reports_router
+from payments import router as payments_router
 
+app = FastAPI(title="Yankuilotl+ API")
 
 app.add_middleware(
     CORSMiddleware,
@@ -14,45 +21,18 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
-@app.post()
+@app.get("/api/health")
 def health():
-    return {"status": "ok"}
-@app.post()
-@app.post()
-@app.post()
-@app.post()
-@app.post()
-GET /api/health
-GET /api/user/profile
+    return {"status": "ok", "message": "Yankuilotl+ activo y dinámico"}
 
-GET /api/map/nearby
+# Registro de rutas
+app.include_router(hubs_router)
+app.include_router(trip_router)
+app.include_router(user_router)
+app.include_router(safety_router)
+app.include_router(reports_router)
+app.include_router(payments_router)
 
-GET /api/trip/route-sana
-
-GET /api/hubs/status: Consulta la disponibilidad de baterías cargadas en un Hub específico.
-
-GET /api/payments/balance
-
-POST /api/trip/start
-
-POST /api/trip/end
-
-POST /api/hubs/swap
-POST /api/reports/incident
-
-POST /api/reports/validate
-
-POST /api/user/link-ruta
-
-POST /api/safety/panic
-
-POST /api/payments/hybrid-calc
-POST /api/assistance/request
-
-
-PATCH /api/user/settings
-
-PATCH /api/safety/brick
 if __name__ == "__main__":
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    # Importante: uvicorn busca el objeto "app" dentro del archivo "server"
+    uvicorn.run("server:app", host="0.0.0.0", port=8000, reload=True)

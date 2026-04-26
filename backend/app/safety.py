@@ -1,30 +1,22 @@
+from fastapi import APIRouter
+from pydantic import BaseModel
 from datetime import datetime, timezone
 
-from pydantic import BaseModel
-
+router = APIRouter(prefix="/api/safety", tags=["Safety"])
 
 class PanicRequest(BaseModel):
-	user_id: str
-	lat: float
-	lng: float
-	note: str | None = None
-
+    user_id: str
+    lat: float
+    lng: float
 
 class BrickPatchRequest(BaseModel):
-	vehicle_id: str
-	reason: str
+    vehicle_id: str
+    reason: str
 
-def panic_button(payload: PanicRequest) -> dict:
-	return {
-		"status": "alert_sent",
-		"user_id": payload.user_id,
-		"location": {"lat": payload.lat, "lng": payload.lng},
-		"sent_at": datetime.now(timezone.utc).isoformat(),
-	}
+@router.post("/panic")
+def post_panic(payload: PanicRequest):
+    return {"status": "alert_sent", "sent_at": datetime.now(timezone.utc).isoformat()}
 
-def brick_vehicle(payload: BrickPatchRequest) -> dict:
-	return {
-		"status": "vehicle_bricked",
-		"vehicle_id": payload.vehicle_id,
-		"reason": payload.reason,
-	}
+@router.patch("/brick")
+def patch_brick(payload: BrickPatchRequest):
+    return {"status": "vehicle_bricked", "vehicle_id": payload.vehicle_id}
