@@ -36,7 +36,7 @@ class LectorTerminal:
         return True
 
 # --- Ejecución de la simulación ---
-mi_telefono = DispositivoNFC("iPhone de Diego", "4540-1111-2222-3333")
+mi_telefono = DispositivoNFC("Dispositivo del Usuario", "4540-1111-2222-3333")
 token, nonce = mi_telefono.responder_solicitud()
 print(f"\nEl token es: {token}")
 
