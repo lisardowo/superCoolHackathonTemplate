@@ -1,38 +1,81 @@
+/* ─── Marcador base — solo el icono, sin caja ni pin ────────────────────────── */
 .custom-marker {
-  width: 38px;
-  height: 38px;
-  border-radius: 50% 50% 50% 0;
+  /* Tamaño ajustado al SVG + padding mínimo */
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform: rotate(-45deg);
   cursor: pointer;
-  box-shadow: -2px 3px 8px rgba(0, 0, 0, 0.25);
-  transition: transform 0.2s, box-shadow 0.2s;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
+  transform: none;
+
+  /* El color viene de la CSS custom property inyectada en JS */
+  color: var(--m-color, #0047AB);
+
+  /* Drop-shadow para legibilidad sobre el mapa sin caja */
+  filter:
+    drop-shadow(0 1px 0 rgba(255,255,255,0.9))
+    drop-shadow(0 0 4px rgba(255,255,255,0.7));
+
+  transition: transform 0.2s cubic-bezier(0.34,1.56,0.64,1), filter 0.2s ease;
+  will-change: transform;
 }
 
+/* El SVG hereda el color del contenedor */
+.custom-marker svg {
+  display: block;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  overflow: visible;
+}
+
+/* Hover — escala spring + halo más pronunciado */
 .custom-marker:hover {
-  transform: rotate(-45deg) scale(1.15);
-  box-shadow: -3px 4px 12px rgba(0, 0, 0, 0.35);
+  transform: scale(1.35) translateY(-2px);
+  filter:
+    drop-shadow(0 2px 0 rgba(255,255,255,1))
+    drop-shadow(0 0 7px rgba(255,255,255,0.85))
+    drop-shadow(0 0 3px var(--m-color, #0047AB));
 }
 
-.marker-inner {
-  transform: rotate(45deg); /* cancela la rotación del pin */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
+/* ─── Variantes por tipo: tamaños relativos ──────────────────────────────────── */
+
+/* Estaciones RUTA — más prominentes */
+.marker-type--ruta_station {
+  width: 40px;
+  height: 40px;
 }
 
-/* Marcador estático para usar en leyendas / UI (sin rotación) */
-.marker-static {
-  transform: rotate(0) !important;
-  width: 28px;
-  height: 28px;
-  border-radius: 50% !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+/* Scooters y bicis — medianos */
+.marker-type--scooter,
+.marker-type--bici {
+  width: 40px;
+  height: 40px;
+  opacity: 0.88;
 }
 
-.marker-static .marker-inner {
-  transform: rotate(0) !important;
+/* Hubs — igual de visibles */
+.marker-type--hub {
+  width: 40px;
+  height: 40px;
+}
+
+/* ─── Leyenda (UI, sin interacción de mapa) ──────────────────────────────────── */
+.marker-legend {
+  width: 25px;
+  height: 25px;
+  cursor: default;
+  pointer-events: none;
+}
+
+.marker-legend:hover {
+  transform: none;
+  filter:
+    drop-shadow(0 1px 0 rgba(255,255,255,0.9))
+    drop-shadow(0 0 4px rgba(255,255,255,0.7));
 }

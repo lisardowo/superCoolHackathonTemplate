@@ -834,5 +834,91 @@
         "estacion_cercana": "l4-05"
       }
     ]
-  }
+  },
+  "hubs": [
+    {
+      "id": "hub-uni-buap-cu",
+      "name": "BUAP (Ciudad Universitaria)",
+      "lat": 19.0016,
+      "lng": -98.2023,
+      "type": "hub"
+    },
+    {
+      "id": "hub-uni-upaep",
+      "name": "UPAEP",
+      "lat": 19.0469,
+      "lng": -98.214,
+      "type": "hub"
+    },
+    {
+      "id": "hub-uni-udlap",
+      "name": "UDLAP",
+      "lat": 19.0559,
+      "lng": -98.2831,
+      "type": "hub"
+    },
+    {
+      "id": "hub-uni-ibero",
+      "name": "Ibero Puebla",
+      "lat": 19.0232,
+      "lng": -98.2415,
+      "type": "hub"
+    },
+    {
+      "id": "hub-uni-tec",
+      "name": "Tec de Monterrey (Campus Puebla)",
+      "lat": 19.0195,
+      "lng": -98.2423,
+      "type": "hub"
+    },
+    {
+      "id": "hub-uni-anahuac",
+      "name": "Anáhuac Puebla",
+      "lat": 19.0664,
+      "lng": -98.2715,
+      "type": "hub"
+    },
+    {
+      "id": "hub-uni-itp",
+      "name": "Instituto Tecnológico de Puebla",
+      "lat": 19.0653,
+      "lng": -98.172,
+      "type": "hub"
+    },
+    {
+      "id": "hub-uni-uvm",
+      "name": "UVM (Campus Puebla)",
+      "lat": 19.0435,
+      "lng": -98.2748,
+      "type": "hub"
+    },
+    {
+      "id": "hub-uni-uvp",
+      "name": "UVP (Universidad del Valle de Puebla)",
+      "lat": 19.0238,
+      "lng": -98.2045,
+      "type": "hub"
+    },
+    {
+      "id": "hub-plaza-solesta",
+      "name": "Plaza Solesta",
+      "lat": 19.0361,
+      "lng": -98.2328,
+      "type": "hub"
+    },
+    {
+      "id": "hub-plaza-angelopolis",
+      "name": "Centro Comercial Angelópolis",
+      "lat": 19.0305,
+      "lng": -98.2325,
+      "type": "hub"
+    },
+    {
+      "id": "hub-plaza-explanada",
+      "name": "Explanada Puebla",
+      "lat": 19.0645,
+      "lng": -98.2882,
+      "type": "hub"
+    }
+  ]
 }
