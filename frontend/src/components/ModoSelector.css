@@ -1,0 +1,106 @@
+.ms-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+}
+
+.ms-card {
+  width: 88%;
+  background: rgba(251, 251, 251, 0.97);
+  border-radius: 18px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  padding: 24px 20px 22px;
+}
+
+.ms-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--azul-cobalto);
+  border-radius: 14px;
+  padding: 16px 18px;
+  margin-bottom: 14px;
+}
+
+.ms-title {
+  margin: 0;
+  color: white;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.ms-sub {
+  text-align: center;
+  font-size: 0.75rem;
+  color: #888;
+  margin: 0 0 18px;
+}
+
+.ms-options {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.ms-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+  padding: 18px 16px;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.ms-btn:active {
+  transform: scale(0.97);
+}
+
+.ms-btn--joven {
+  background: linear-gradient(135deg, #e8f0fc, #d0e2ff);
+  border-color: rgba(0, 71, 171, 0.25);
+  color: #0f2f67;
+}
+
+.ms-btn--joven .ms-btn-icon {
+  color: #0047AB;
+}
+
+.ms-btn--senior {
+  background: linear-gradient(135deg, #fdf3e7, #fde4c8);
+  border-color: rgba(180, 90, 0, 0.22);
+  color: #5a2e00;
+}
+
+.ms-btn--senior .ms-btn-icon {
+  color: #C47F00;
+}
+
+.ms-btn-icon {
+  background: rgba(255,255,255,0.7);
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ms-btn-label {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.ms-btn-sub {
+  font-size: 0.72rem;
+  opacity: 0.7;
+  text-align: center;
+}
