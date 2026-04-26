@@ -1,0 +1,301 @@
+/* ─── Contenedor modal ──────────────────────────────────────────────────────── */
+.rep-modal {
+  max-width: 370px;
+  width: 92%;
+}
+
+/* ─── Header inner ──────────────────────────────────────────────────────────── */
+.rep-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* ─── Ubicación bar ─────────────────────────────────────────────────────────── */
+.rep-ubicacion-bar {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #EEF3FB;
+  border-bottom: 1px solid rgba(0, 71, 171, 0.1);
+  padding: 9px 20px;
+  color: #0047AB;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+/* ─── Body ──────────────────────────────────────────────────────────────────── */
+.rep-body {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 20px 20px 24px;
+}
+
+/* ─── Campo genérico ────────────────────────────────────────────────────────── */
+.rep-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.rep-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.rep-optional {
+  font-weight: 500;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #aaa;
+  font-size: 10px;
+}
+
+/* ─── Input de texto ────────────────────────────────────────────────────────── */
+.rep-input {
+  border: 1.5px solid rgba(0, 71, 171, 0.25);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: #333;
+  background: white;
+  outline: none;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rep-input:focus {
+  border-color: #0047AB;
+  box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.1);
+}
+
+.rep-input::placeholder {
+  color: #ccc;
+}
+
+/* ─── Textarea ──────────────────────────────────────────────────────────────── */
+.rep-textarea {
+  border: 1.5px solid rgba(0, 71, 171, 0.25);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-size: 14px;
+  color: #333;
+  background: white;
+  outline: none;
+  resize: none;
+  transition: border-color 0.2s ease;
+  font-family: inherit;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.rep-textarea:focus {
+  border-color: #0047AB;
+  box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.1);
+}
+
+.rep-textarea::placeholder {
+  color: #ccc;
+}
+
+/* ─── Dropdown ──────────────────────────────────────────────────────────────── */
+.rep-dropdown-wrap {
+  position: relative;
+}
+
+.rep-dropdown-trigger {
+  width: 100%;
+  border: 1.5px solid rgba(0, 71, 171, 0.25);
+  border-radius: 10px;
+  padding: 11px 14px;
+  background: white;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #0047AB;
+  transition: border-color 0.2s ease;
+  text-align: left;
+}
+
+.rep-dropdown-trigger.is-open,
+.rep-dropdown-trigger:focus {
+  border-color: #0047AB;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(0, 71, 171, 0.1);
+}
+
+.rep-dropdown-value {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rep-placeholder {
+  color: #ccc;
+  font-weight: 400;
+}
+
+.rep-chevron {
+  flex-shrink: 0;
+  transition: transform 0.2s ease;
+}
+
+.rep-chevron.is-up {
+  transform: rotate(180deg);
+}
+
+.rep-dropdown-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1.5px solid rgba(0, 71, 171, 0.18);
+  border-radius: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow: hidden;
+  z-index: 200;
+  box-shadow: 0 8px 24px rgba(0, 71, 171, 0.12);
+  animation: rep-drop-in 0.18s ease-out both;
+}
+
+@keyframes rep-drop-in {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.rep-dropdown-item {
+  padding: 11px 14px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.rep-dropdown-item + .rep-dropdown-item {
+  border-top: 1px solid rgba(0, 71, 171, 0.07);
+}
+
+.rep-dropdown-item:hover {
+  background: rgba(0, 71, 171, 0.04);
+}
+
+.rep-dropdown-item.is-selected {
+  background: rgba(0, 71, 171, 0.07);
+  border-left: 3px solid #0047AB;
+  color: #0047AB;
+  font-weight: 700;
+  padding-left: 11px;
+}
+
+.rep-tipo-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* ─── Zona de foto ──────────────────────────────────────────────────────────── */
+.rep-foto-zone {
+  border: 1.5px dashed rgba(0, 71, 171, 0.3);
+  border-radius: 10px;
+  padding: 18px;
+  background: rgba(0, 71, 171, 0.03);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+  color: #0047AB;
+  font-size: 12px;
+  font-weight: 600;
+  opacity: 0.7;
+  transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.rep-foto-zone:hover {
+  opacity: 1;
+  background: rgba(0, 71, 171, 0.07);
+}
+
+.rep-foto-name {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #0047AB;
+  opacity: 1;
+}
+
+/* ─── Botón enviar ──────────────────────────────────────────────────────────── */
+.rep-submit-btn {
+  width: 100%;
+  padding: 14px 16px;
+  background-color: var(--azul-cobalto, #0047AB);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 71, 171, 0.28);
+}
+
+.rep-submit-btn:hover:not(.is-disabled) {
+  background-color: #0055cc;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(0, 71, 171, 0.36);
+}
+
+.rep-submit-btn:active:not(.is-disabled) {
+  transform: scale(0.98);
+}
+
+.rep-submit-btn.is-disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ─── Estado de éxito ───────────────────────────────────────────────────────── */
+.rep-success {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 24px 0;
+  animation: rep-success-in 0.35s ease-out both;
+}
+
+.rep-success p {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0047AB;
+  margin: 0;
+  letter-spacing: 0.02em;
+}
+
+@keyframes rep-success-in {
+  from { opacity: 0; transform: scale(0.88); }
+  to   { opacity: 1; transform: scale(1); }
+}

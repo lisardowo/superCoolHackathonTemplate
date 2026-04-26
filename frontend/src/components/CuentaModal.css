@@ -1,0 +1,217 @@
+.cuenta-modal {
+  max-width: 370px;
+  width: 92%;
+}
+
+.rep-header-inner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cuenta-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+  padding: 24px 20px 22px;
+}
+
+/* ── PFP ── */
+.cuenta-pfp-wrap {
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.cuenta-pfp-ring {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background: #EEF3FB;
+  border: 3px solid #0047AB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cuenta-pfp-edit {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  width: 22px;
+  height: 22px;
+  background: #0047AB;
+  border-radius: 50%;
+  border: 2px solid white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+/* ── ID / animal ── */
+.cuenta-id-pill {
+  font-size: 11px;
+  color: #0047AB;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: #EEF3FB;
+  padding: 4px 12px;
+  border-radius: 20px;
+  margin-bottom: 6px;
+}
+
+.cuenta-animal-sub {
+  font-size: 11px;
+  color: #aaa;
+  font-weight: 500;
+  margin: 0 0 20px;
+  text-align: center;
+}
+
+/* ── XP bar ── */
+.cuenta-xp-wrap {
+  width: 100%;
+  background: #EEF3FB;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin-bottom: 14px;
+}
+
+.cuenta-xp-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.cuenta-xp-label-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.cuenta-section-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #0047AB;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cuenta-xp-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #0047AB;
+}
+
+/* ── Rep bar ── */
+.cuenta-rep-wrap {
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.cuenta-rep-value {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1A8A7D;
+}
+
+/* ── Barras compartidas ── */
+.cuenta-bar-track {
+  background: rgba(0, 71, 171, 0.1);
+  border-radius: 99px;
+  height: 7px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cuenta-rep-wrap .cuenta-bar-track {
+  background: rgba(26, 138, 125, 0.12);
+  height: 9px;
+}
+
+.cuenta-bar-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.cuenta-bar-fill--xp  { background: #0047AB; }
+.cuenta-bar-fill--rep { background: #1A8A7D; }
+
+.cuenta-bar-ends {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  font-size: 10px;
+  color: #aaa;
+}
+
+/* ── Stats grid ── */
+.cuenta-stats-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-bottom: 14px;
+}
+
+.cuenta-stat-card {
+  background: #EEF3FB;
+  border-radius: 12px;
+  padding: 14px 14px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cuenta-stat-label-row {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 2px;
+}
+
+.cuenta-stat-label {
+  font-size: 10px;
+  font-weight: 700;
+  color: #888;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.cuenta-stat-number {
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -0.02em;
+}
+
+.cuenta-stat-number--gold { color: #C47F00; }
+.cuenta-stat-number--teal { color: #1A8A7D; }
+
+.cuenta-stat-sub {
+  font-size: 10px;
+  color: #aaa;
+}
+
+/* ── Tasa de cambio ── */
+.cuenta-tasa-row {
+  width: 100%;
+  border-top: 1px solid rgba(0, 71, 171, 0.08);
+  padding-top: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.cuenta-tasa-text {
+  font-size: 11px;
+  color: #bbb;
+  letter-spacing: 0.04em;
+}
