@@ -41,8 +41,10 @@ export default function SeniorMode({ openConfig }) {
       {/* Mapa Simplificado */}
       <main className="s-map-area" style={{ position: 'relative', overflow: 'hidden', padding: 0 }}>
         
+        {/* Render del Mapa de Fondo Limitado */}
         <MapContainer isSeniorMode={true} />
 
+        {/* HUD Overlay en Modo Senior */}
         <div style={{ position: 'absolute', top: '10px', width: '100%', display: 'flex', justifyContent: 'center', zIndex: 10 }}>
           <div className="s-current-location talavera-border">
             <h2 className="s-location-title">Usted está en:</h2>

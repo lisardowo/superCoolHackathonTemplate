@@ -1,0 +1,162 @@
+{
+    "1": {
+        "nombre": "Carlos Hernández",
+        "correo_electronico": "carlos.hernandez@gmail.com",
+        "edad": 34,
+        "Tarjeta": "4821",
+        "Tarjeta_ruta": "ruta3",
+        "creditos": 15
+    },
+    "2": {
+        "nombre": "María López",
+        "correo_electronico": "maria.lopez@hotmail.com",
+        "edad": 28,
+        "Tarjeta": "5932",
+        "Tarjeta_ruta": "ruta1",
+        "creditos": 42
+    },
+    "3": {
+        "nombre": "José Martínez",
+        "correo_electronico": "jose.martinez@yahoo.com",
+        "edad": 41,
+        "Tarjeta": "7745",
+        "Tarjeta_ruta": "ruta2",
+        "creditos": 8
+    },
+    "4": {
+        "nombre": "Ana García",
+        "correo_electronico": "ana.garcia@gmail.com",
+        "edad": 22,
+        "Tarjeta": "6689",
+        "Tarjeta_ruta": "ruta4",
+        "creditos": 25
+    },
+    "5": {
+        "nombre": "Luis Ramírez",
+        "correo_electronico": "luis.ramirez@outlook.com",
+        "edad": 36,
+        "Tarjeta": "1123",
+        "Tarjeta_ruta": "ruta1",
+        "creditos": 12
+    },
+    "6": {
+        "nombre": "Sofía Torres",
+        "correo_electronico": "sofia.torres@gmail.com",
+        "edad": 27,
+        "Tarjeta": "9345",
+        "Tarjeta_ruta": "ruta3",
+        "creditos": 55
+    },
+    "7": {
+        "nombre": "Miguel Sánchez",
+        "correo_electronico": "miguel.sanchez@yahoo.com",
+        "edad": 45,
+        "Tarjeta": "2211",
+        "Tarjeta_ruta": "ruta2",
+        "creditos": 5
+    },
+    "8": {
+        "nombre": "Laura Pérez",
+        "correo_electronico": "laura.perez@gmail.com",
+        "edad": 31,
+        "Tarjeta": "5567",
+        "Tarjeta_ruta": "ruta5",
+        "creditos": 18
+    },
+    "9": {
+        "nombre": "Jorge Castillo",
+        "correo_electronico": "jorge.castillo@outlook.com",
+        "edad": 39,
+        "Tarjeta": "9087",
+        "Tarjeta_ruta": "ruta4",
+        "creditos": 22
+    },
+    "10": {
+        "nombre": "Daniela Flores",
+        "correo_electronico": "daniela.flores@gmail.com",
+        "edad": 24,
+        "Tarjeta": "3344",
+        "Tarjeta_ruta": "ruta1",
+        "creditos": 60
+    },
+    "11": {
+        "nombre": "Fernando Ruiz",
+        "correo_electronico": "fernando.ruiz@hotmail.com",
+        "edad": 50,
+        "Tarjeta": "7788",
+        "Tarjeta_ruta": "ruta2",
+        "creditos": 9
+    },
+    "12": {
+        "nombre": "Gabriela Morales",
+        "correo_electronico": "gabriela.morales@gmail.com",
+        "edad": 29,
+        "Tarjeta": "6677",
+        "Tarjeta_ruta": "ruta3",
+        "creditos": 33
+    },
+    "13": {
+        "nombre": "Ricardo Vega",
+        "correo_electronico": "ricardo.vega@yahoo.com",
+        "edad": 37,
+        "Tarjeta": "4455",
+        "Tarjeta_ruta": "ruta5",
+        "creditos": 14
+    },
+    "14": {
+        "nombre": "Patricia Navarro",
+        "correo_electronico": "patricia.navarro@outlook.com",
+        "edad": 33,
+        "Tarjeta": "8899",
+        "Tarjeta_ruta": "ruta4",
+        "creditos": 27
+    },
+    "15": {
+        "nombre": "Eduardo Cruz",
+        "correo_electronico": "eduardo.cruz@gmail.com",
+        "edad": 42,
+        "Tarjeta": "1010",
+        "Tarjeta_ruta": "ruta2",
+        "creditos": 6
+    },
+    "16": {
+        "nombre": "Claudia Mendoza",
+        "correo_electronico": "claudia.mendoza@hotmail.com",
+        "edad": 26,
+        "Tarjeta": "2020",
+        "Tarjeta_ruta": "ruta1",
+        "creditos": 48
+    },
+    "17": {
+        "nombre": "Alejandro Ríos",
+        "correo_electronico": "alejandro.rios@gmail.com",
+        "edad": 38,
+        "Tarjeta": "3030",
+        "Tarjeta_ruta": "ruta3",
+        "creditos": 19
+    },
+    "18": {
+        "nombre": "Verónica Salazar",
+        "correo_electronico": "veronica.salazar@yahoo.com",
+        "edad": 35,
+        "Tarjeta": "4040",
+        "Tarjeta_ruta": "ruta5",
+        "creditos": 21
+    },
+    "19": {
+        "nombre": "Héctor Aguilar",
+        "correo_electronico": "hector.aguilar@outlook.com",
+        "edad": 44,
+        "Tarjeta": "5050",
+        "Tarjeta_ruta": "ruta4",
+        "creditos": 11
+    },
+    "20": {
+        "nombre": "Natalia Ortega",
+        "correo_electronico": "natalia.ortega@gmail.com",
+        "edad": 23,
+        "Tarjeta": "6060",
+        "Tarjeta_ruta": "ruta1",
+        "creditos": 70
+    }
+}
